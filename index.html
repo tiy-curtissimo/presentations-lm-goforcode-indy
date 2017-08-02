@@ -9,10 +9,119 @@
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/sky.css">
     <link rel="stylesheet" href="lib/css/idea.css">
+    <style>
+      .reveal section img {
+        border: 0;
+        box-shadow: none;
+      }
+      .reveal .slide-header {
+        font-size: 2em;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
+        <section>
+          <h1>GoForCode!</h1>
+          <div style="display: flex; justify-content: center; align-items: stretch;">
+            <img src="logo-liberty-mutual.svg" style="width: 350px; height: 165px; margin-right: 24px;">
+            <div style="border-left: 2px solid #CCC; margin-right: 24px;"></div>
+            <img src="logo-tiy.svg">
+          </div>
+        </section>
+        <section>
+          <h1 class="slide-header">Our Journey</h1>
+          <table>
+            <thead>
+              <tr>
+                <th>Java</th>
+                <th>HTML</th>
+                <th>JavaScript</th>
+                <th>CSS</th>
+                <th>SQL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Spring</td>
+                <td>Angular</td>
+                <td>TypeScript</td>
+                <td>SASS</td>
+                <td>JPA</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <div style="display: flex; justify-content: center; align-items: baseline;">
+          <em style="font-size: 1.25em;">Skills</em>
+          <span style="margin: 0 28px 0 32px;">vs.</span>
+          <em style="font-size: 1.25em;">Knowledge</em>
+          </div>
+        </section>
+        <section>
+          <h1 class="slide-header">Normal Weekly Schedule</h1>
+          <table>
+            <tbody>
+              <tr>
+                <th>Tue</th>
+                <td>Start a new series</td>
+              </tr>
+              <tr>
+                <th>Wed - Thu</th>
+                <td>Learn lots of stuff</td>
+              </tr>
+              <tr>
+                <th>Fri morning</th>
+                <td>Wrap up stuff</td>
+              </tr>
+              <tr>
+                <th>Fri afternoon -<br>Mon morning</th>
+                <td>Do a project</td>
+              </tr>
+              <tr>
+                <th>Mon afternoon</th>
+                <td>
+                  Show off projects<br>
+                  Retrospective
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h1 class="slide-header">Stuff to Expect</h1>
+          <p>Katas</p>
+          <p>History lessons</p>
+          <p>Lots of typing</p>
+          <p>Homework</p>
+          <p>Difficulties</p>
+        </section>
+        <section>
+          <h1>My Goal for<br>Our Class</h1>
+        </section>
+        <section>
+          <h1 class="slide-header">Today</h1>
+          <ul>
+            <li>Introductions</li>
+            <li>Software check</li>
+            <li>Diving in</li>
+          </ul>
+        </section>
+        <section>
+          <h1>Introductions</h1>
+        </section>
+        <section>
+          <h1>Software check</h1>
+        </section>
+        <section>
+          <h1 class="slide-header">Diving in</h1>
+          <p style="display: flex; justify-content: center;"><span style="flex: 0 0 300px; text-align: right; margin-right: 36px;">Command line</span><span style="flex: 0 0 200px; text-align: left;">ಥ‿ಥ</span></p>
+          <p style="display: flex; justify-content: center;"><span style="flex: 0 0 300px; text-align: right; margin-right: 36px;">Git</span><span style="flex: 0 0 200px; text-align: left;">(⚆_⚆)</span></p>
+          <p style="display: flex; justify-content: center;"><span style="flex: 0 0 300px; text-align: right; margin-right: 36px;">Java</span><span style="flex: 0 0 200px; text-align: left;">¯\(◉◡◔)/¯</span></p>
+          <p style="display: flex; justify-content: center;"><span style="flex: 0 0 300px; text-align: right; margin-right: 36px;">HTML</span><span style="flex: 0 0 200px; text-align: left;">( ˘ ³˘)♥</span></p>
+        </section>
       </div>
     </div>
 
@@ -25,7 +134,7 @@
           { src: 'plugin/markdown/marked.js' },
           { src: 'plugin/markdown/markdown.js' },
           { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
         ]
       });
     </script>
