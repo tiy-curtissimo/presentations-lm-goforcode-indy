@@ -9,16 +9,25 @@
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/sky.css">
     <link rel="stylesheet" href="lib/css/idea.css">
+    <style>
+      .reveal section img {
+        border: 0;
+        box-shadow: none;
+      }
+      .reveal .slide-header {
+        font-size: 2em;
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
       <div class="slides">
-	<section>
-	  <p>
-	    <a href="./html.html">HTML</a>
-	    How layout works
-	  </p>
-	</section>
+        <section>
+          <p>
+            <a href="./html.html">HTML</a>
+            How layout works
+          </p>
+        </section>
       </div>
     </div>
 
@@ -31,7 +40,7 @@
           { src: 'plugin/markdown/marked.js' },
           { src: 'plugin/markdown/markdown.js' },
           { src: 'plugin/notes/notes.js', async: true },
-          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
         ]
       });
     </script>
