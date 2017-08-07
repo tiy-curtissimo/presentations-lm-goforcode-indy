@@ -6,9 +6,68 @@
 
     <title>reveal.js</title>
 
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="css/reveal.css">
     <link rel="stylesheet" href="css/theme/sky.css">
     <link rel="stylesheet" href="lib/css/idea.css">
+    <style>
+      .reveal .fake-browser {
+        width: 400px;
+        height: 300px;
+        background-color: white;
+        border: 1px solid grey;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .reveal .fake-browser-window-bar {
+        border-bottom: 1px solid grey;
+        background-color: lightgray;
+        padding-left: 8px;
+        text-align: left;
+        font-size: 1rem;
+        flex: 0 0 17px;
+      }
+      .reveal .fake-browser-window-content {
+        flex: 1 0 0px;
+        padding: 4px;
+        font-size: 3rem;
+        text-align: left;
+        height: 232px;
+        overflow-y: auto;
+      }
+      .reveal .fake-browser-window-content h1 {
+        font-size: 1.5em;
+      }
+      .reveal .slides section .fragment.highlight-current-green.current-fragment.highlight-green-inverse {
+        background-color: #17ff2e;
+      }
+      .reveal .slides section .fragment.highlight-blue.visible.highlight-blue-inverse {
+        background-color: rgb(27, 145, 255);
+        color: black;
+      }
+      .material-icons.bigly {
+        font-size: 1em;
+        color: rgba(0, 0, 0, .4);
+      }
+      .reveal .block-element {
+        margin-bottom: 4px;
+      }
+      .lie:after {
+        content: ' *';
+        color: rgba(0, 0, 0, .4);
+      }
+      .reveal blockquote {
+        text-align: left;
+        background-color: rgba(255, 255, 255, .3);
+        padding: 0 1em;
+      }
+      .reveal .st {
+        text-decoration: line-through;
+        color: rgba(0, 0, 0, .4);
+      }
+    </style>
   </head>
   <body>
     <div class="reveal">
@@ -27,9 +86,211 @@
   &lt;/body>
 &lt;/html>
           </code></pre>
+          <div class="fake-browser">
+            <div class="fake-browser-window-bar">
+              A Web Page
+            </div>
+            <div class="fake-browser-window-content">
+              <h1>Hello, World!</h1>
+            </div>
+          </div>
         </section>
         <section>
-          
+          <h1 class="lie">only 2 modes</h1>
+          <h2>inline</h2>
+          <h2>block</h2>
+        </section>
+        <section>
+          <h1>inline</h1>
+          <blockquote>
+            <ol>
+              <li>Lay out words, one-by-one.</li>
+              <li>If you hit the end of the line, start a new line.</li>
+            </ol>
+        </section>
+        <section>
+          <pre><code class="html" data-trim>
+&lt;!doctype html>
+&lt;html>
+  &lt;head>&lt;title>Inline&lt;/title>&lt;/head>
+  &lt;body>
+    <span>This is a lovely little page.</span>
+    <span>Don't you like it?</span>
+    <span>I do.</span>
+  &lt;/body>
+&lt;/html>
+          </code></pre>
+          <div class="fake-browser">
+            <div class="fake-browser-window-bar">
+              Inline
+            </div>
+            <div class="fake-browser-window-content">
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">This</span></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">is</span></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">a</span></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">lovely</span></span>
+              <span class="fragment fade-up"><i class="material-icons bigly">wrap_text</i></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">little</span></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">page.</span></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">Don't</span></span>
+              <span class="fragment fade-up"><i class="material-icons bigly">wrap_text</i></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">you</span></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">like</span></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">it?</span></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">I</span></span>
+              <span class="fragment highlight-current-green highlight-green-inverse"><span class="fragment fade-up">do.</span></span>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1>block</h1>
+          <blockquote>
+            <ol>
+              <li>Lay out words, one-by-one.</li>
+              <li>
+                Go as wide as you can. If you hit the right side of the
+                element, start a new line.
+              </li>
+              <li>
+                When you complete the block element, start the next element on
+                a new line.
+              </li>
+            </ol>
+          </blockquote>
+        </section>
+        <section>
+          <pre><code class="html" data-trim>
+&lt;!doctype html>
+&lt;html>
+  &lt;head>&lt;title>Block&lt;/title>&lt;/head>
+  &lt;body>
+    <p>This is a lovely larger page.</p>
+    <p>Don't you like it?</p>
+    <p>I do.</p>
+  &lt;/body>
+&lt;/html>
+          </code></pre>
+          <div class="fake-browser">
+            <div class="fake-browser-window-bar">
+              Block
+            </div>
+            <div class="fake-browser-window-content">
+              <div class="fragment highlight-blue highlight-blue-inverse block-element" data-fragment-index="13">
+                <span data-fragment-index="1" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="2" class="fragment fade-up">This</span></span>
+                <span data-fragment-index="3" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="4" class="fragment fade-up">is</span></span>
+                <span data-fragment-index="5" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="6" class="fragment fade-up">a</span></span>
+                <span data-fragment-index="7" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="8" class="fragment fade-up">lovely</span></span>
+                <span data-fragment-index="9" class="fragment fade-up"><i class="material-icons bigly">wrap_text</i></span>
+                <span data-fragment-index="10" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="11" class="fragment fade-up">larger</span></span>
+                <span data-fragment-index="11" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="12" class="fragment fade-up">page.</span></span>
+              </div>
+              <div class="fragment highlight-blue highlight-blue-inverse block-element" data-fragment-index="22">
+                <span data-fragment-index="14" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="15" class="fragment fade-up">Don't</span></span>
+                <span data-fragment-index="16" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="17" class="fragment fade-up">you</span></span>
+                <span data-fragment-index="18" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="19" class="fragment fade-up">like</span></span>
+                <span data-fragment-index="20" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="21" class="fragment fade-up">it?</span></span>
+              </div>
+              <div class="fragment highlight-blue highlight-blue-inverse block-element" data-fragment-index="27">
+                <span data-fragment-index="23" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="24" class="fragment fade-up">I</span></span>
+                <span data-fragment-index="25" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="26" class="fragment fade-up">do.</span></span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <pre><code class="html" data-trim>
+&lt;!doctype html>
+&lt;html>
+  &lt;head>&lt;title>Block with narrow width&lt;/title>&lt;/head>
+  &lt;body>
+    <p style="width: 40%">Oh! Baby goats.</p>
+    <p style="width: 40%">So cute!</p>
+  &lt;/body>
+&lt;/html>
+          </code></pre>
+          <div class="fake-browser">
+            <div class="fake-browser-window-bar">
+              Block with narrow width
+            </div>
+            <div class="fake-browser-window-content">
+              <div style="width: 45%" class="fragment highlight-blue highlight-blue-inverse block-element" data-fragment-index="9">
+                <span data-fragment-index="1" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="2" class="fragment fade-up">Oh!</span></span>
+                <span data-fragment-index="3" class="fragment fade-up"><i class="material-icons bigly">wrap_text</i></span>
+                <span data-fragment-index="4" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="5" class="fragment fade-up">baby</span></span>
+                <span data-fragment-index="6" class="fragment fade-up"><i class="material-icons bigly">wrap_text</i></span>
+                <span data-fragment-index="7" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="8" class="fragment fade-up">goats.</span></span>
+              </div>
+              <div style="width: 45%" class="fragment highlight-blue highlight-blue-inverse block-element" data-fragment-index="15">
+                <span data-fragment-index="10" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="11" class="fragment fade-up">So</span></span>
+                <span data-fragment-index="12" class="fragment fade-up"><i class="material-icons bigly">wrap_text</i></span>
+                <span data-fragment-index="13" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="14" class="fragment fade-up">cute.</span></span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1 class="lie">only <span class="st">2</span>3 modes</h1>
+          <h3>inline</h3>
+          <h3>block</h3>
+          <h2>inline-block</h2>
+        </section>
+        <section>
+          <h1>inline-block</h1>
+          <blockquote>
+            <ol>
+              <li>Lay out words, one-by-one.</li>
+              <li>
+                Go as wide as you can. If you hit the right side of the
+                element, start a new line.
+              </li>
+              <li>
+                When you complete the block element, start the next element
+                as if the entire inline-block element were just a single word.
+              </li>
+            </ol>
+          </blockquote>
+        </section>
+        <section>
+          <pre><code class="html" data-trim>
+&lt;!doctype html>
+&lt;html>
+  &lt;head>&lt;title>Inline block with narrow width&lt;/title>&lt;/head>
+  &lt;body>
+    <p style="width: 40%; display: inline-block;">Oh! Baby goats.</p>
+    <p style="width: 40%; display: inline-block;">So cute!</p>
+  &lt;/body>
+&lt;/html>
+          </code></pre>
+          <div class="fake-browser">
+            <div class="fake-browser-window-bar">
+              Inline block with narrow width
+            </div>
+            <div class="fake-browser-window-content">
+              <div style="width: 45%; display: inline-block;" class="fragment highlight-blue highlight-blue-inverse block-element" data-fragment-index="9">
+                <span data-fragment-index="1" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="2" class="fragment fade-up">Oh!</span></span>
+                <span data-fragment-index="3" class="fragment fade-up"><i class="material-icons bigly">wrap_text</i></span>
+                <span data-fragment-index="4" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="5" class="fragment fade-up">baby</span></span>
+                <span data-fragment-index="6" class="fragment fade-up"><i class="material-icons bigly">wrap_text</i></span>
+                <span data-fragment-index="7" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="8" class="fragment fade-up">goats.</span></span>
+              </div>
+              <div style="width: 45%; display: inline-block;" class="fragment highlight-blue highlight-blue-inverse block-element" data-fragment-index="15">
+                <span data-fragment-index="10" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="11" class="fragment fade-up">So</span></span>
+                <span data-fragment-index="12" class="fragment fade-up"><i class="material-icons bigly">wrap_text</i></span>
+                <span data-fragment-index="13" class="fragment highlight-current-green highlight-green-inverse"><span data-fragment-index="14" class="fragment fade-up">cute.</span></span>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section>
+          <h1 class="lie">only <span class="st">2</span><span class="st">3</span>4 modes</h1>
+          <h3>inline</h3>
+          <h3>block</h3>
+          <h3>inline-block</h3>
+          <h2>flex</h2>
+        </section>
+        <section>
+          <h1>flex</h1>
+          <p>Later...</p>
         </section>
       </div>
     </div>
