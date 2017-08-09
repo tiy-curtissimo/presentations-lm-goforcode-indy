@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css">
+    <link rel="stylesheet" href="lib/css/idea.css">
+    <style>
+      .reveal section img {
+        border: 0;
+        box-shadow: none;
+      }
+      .reveal .slide-header {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>GoForCode!</h1>
+          <h2>Back-End with Java</h2>
+          <div style="display: flex; justify-content: center; align-items: stretch;">
+            <img src="logo-liberty-mutual.svg" style="width: 350px; height: 165px; margin-right: 24px;">
+            <div style="border-left: 2px solid #CCC; margin-right: 24px;"></div>
+            <img src="logo-tiy.svg">
+          </div>
+        </section>
+        <section>
+          <p>Git Katas</p>
+        </section>
+        <section>
+          <p>Open a terminal/Git Bash thing</p>
+        </section>
+        <section>
+          <p>Change your working directory to your <code>dev</code> directory</p>
+        </section>
+        <section>
+          <p>Make a directory named <code>kata</code></p>
+        </section>
+        <section>
+          <p>Change the working directory to <code>kata</code></p>
+        </section>
+        <section>
+          <p>Initialize a new Git repository</p>
+        </section>
+        <section>
+          <p>Create a file named <code>poetry.txt</code></p>
+        </section>
+        <section>
+          <p>
+            Put the content of the poem <i>I taste a liquor never brewed</i>
+            in it and save it.
+          </p>
+        </section>
+        <section>
+          <p>Add/Stage the file for commit</p>
+        </section>
+        <section>
+          <p>Check the status to make sure you added the file</p>
+        </section>
+        <section>
+          <p>Commit the file</p>
+        </section>
+        <section>
+          <p>Check the status that your working tree is clean</p>
+        </section>
+        <section>
+          <p>Check the log to make sure your commit is there</p>
+        </section>
+        <section>
+          <h1>Congratulations!</h1>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        history: true,
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        ]
+      });
+    </script>
+  </body>
+</html>
