@@ -1,0 +1,207 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css">
+    <link rel="stylesheet" href="lib/css/idea.css">
+    <style>
+      .reveal section img {
+        border: 0;
+        box-shadow: none;
+      }
+      .reveal section img.screenshot {
+        border: 1px solid #CCC;
+        background-color: white;
+      }
+      .reveal .slide-header {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1>GoForCode!</h1>
+          <h2>Back-End with Java</h2>
+          <div style="display: flex; justify-content: center; align-items: stretch;">
+            <img src="logo-liberty-mutual.svg" style="width: 350px; height: 165px; margin-right: 24px;">
+            <div style="border-left: 2px solid #CCC; margin-right: 24px;"></div>
+            <img src="logo-tiy.svg">
+          </div>
+        </section>
+        <section>
+          <h1>Java Kata</h1>
+        </section>
+        <section>
+          <p>Open a terminal/Git Bash thing</p>
+        </section>
+        <section>
+          <p>Change directory to your home directory</p>
+        </section>
+        <section>
+          <p>Change directory to your dev directory</p>
+        </section>
+        <section>
+          <p>Make some new directories</p>
+          <pre><code data-trim>
+mkdir -p kata/com/example
+          </code></pre>
+        </section>
+        <section>
+          <p>Change into your new directory</p>
+          <pre><code data-trim>
+cd kata/com/example
+          </code></pre>
+        </section>
+        <section>
+          <p>Change into your new directory</p>
+          <pre><code data-trim>
+cd kata/com/example
+          </code></pre>
+        </section>
+        <section>
+          <p>Create a file named Program.java</p>
+        </section>
+        <section>
+          <p>Open the file in VS Code</p>
+            <pre><code data-trim>
+code Program.java
+            </code></pre>
+        </section>
+        <section>
+          <p>Put the first line as the package name</p>
+          <pre><code data-trim>
+package com.example;
+          </code></pre>
+        </section>
+        <section>
+          <p>Declare a class named Program</p>
+          <pre><code data-trim>
+package com.example;
+
+public class Program {
+  
+}
+          </code></pre>
+        </section>
+        <section>
+          <p>Add a <code>main</code> method</p>
+          <pre><code data-trim>
+package com.example;
+
+public class Program {
+  public static void main(String[] args) {
+    
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <p>
+            Declare a <code>String</code> variable and put some content in it
+          </p>
+          <pre><code data-trim>
+package com.example;
+
+public class Program {
+  public static void main(String[] args) {
+    String someWords = "Java is ok";
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <p>Print the <code>String</code> to the console</p>
+          <pre><code data-trim>
+package com.example;
+
+public class Program {
+  public static void main(String[] args) {
+    String someWords = "Java is ok";
+    System.out.println(someWords);
+  }
+}
+          </code></pre>
+        </section>
+        <section>
+          <p>
+            In your teminal, go back to your ~/kata directory
+          </p>
+          <pre><code data-trim>
+cd ../..
+          </code></pre>
+        </section>
+        <section>
+          <p>
+            Build the program
+          </p>
+          <pre><code data-trim>
+javac com/example/Program.java
+          </code></pre>
+        </section>
+        <section>
+          <p>
+            Run the program
+          </p>
+          <pre><code data-trim>
+java com.example.Program
+          </code></pre>
+        </section>
+        <section>
+          <p>Print the <code>String</code> five times</p>
+          <pre><code data-trim>
+package com.example;
+
+public class Program {
+  public static void main(String[] args) {
+    String someWords = "Java is ok";
+    for (int i = 0; i < 5; i += 1) {
+      System.out.println(someWords);
+    }
+  }
+}
+        </code></pre>
+      </section>
+      <section>
+          <p>
+            Build the program
+          </p>
+          <pre><code data-trim>
+javac com/example/Program.java
+          </code></pre>
+        </section>
+        <section>
+          <p>
+            Run the program
+          </p>
+          <pre><code data-trim>
+java com.example.Program
+          </code></pre>
+        </section>
+        <section>
+          <h1>Rockin' it old school!</h1>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        history: true,
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        ]
+      });
+    </script>
+  </body>
+</html>
