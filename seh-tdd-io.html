@@ -1,0 +1,260 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>SEH, TDD, and IO</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/sky.css">
+  <link rel="stylesheet" href="lib/css/idea.css">
+  <style>
+    .reveal section img {
+      border: 0;
+      box-shadow: none;
+    }
+
+    .reveal .slide-header {
+      font-size: 2em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h1>GoForCode!</h1>
+        <h2>Back-End with Java</h2>
+        <div style="display: flex; justify-content: center; align-items: stretch;">
+          <img src="logo-liberty-mutual.svg" style="width: 350px; height: 165px; margin-right: 24px;">
+          <div style="border-left: 2px solid #CCC; margin-right: 24px;"></div>
+          <img src="logo-tiy.svg">
+        </div>
+      </section>
+      <section>
+        <h2>Think like a programmer</h2>
+        <h2>Learn like a programmer</h2>
+
+        <aside class="notes">
+          <p>Break down problems into constituent parts</p>
+          <p>Figure out what you don't know and find out how to do it</p>
+          <p>You don't learn everything in class, you can't learn everything in class</p>
+        </aside>
+      </section>
+      <section>
+        <h2>Main Topics for Week 3</h2>
+        <ul>
+          <li>Structured exception handling</li>
+          <li>Test-driven development (TDD)</li>
+          <li>File input and output</li>
+        </ul>
+      </section>
+      <section>
+        <h2>Survey Comments</h2>
+        <ul>
+          <li>Lost in the little stuff</li>
+          <li>Just lost</li>
+          <li>More hands-on work</li>
+          <li>More individual feedback</li>
+        </ul>
+
+        <aside class="notes">
+          <p>i think i need more hands on stuff. lecturing doesn't work for me</p>
+          <p>It's difficult to determine if I'm doing well or not in this class thus far.</p>
+          <p>the fast pace and size of project made for a very stressful week</p>
+          <p>I'm struggling applying all of the week's lessons to the end of week project.</p>
+          <p>Some days we saved the really 'heavy' topics (like code-alongs) for the very end of the day and it's tough to keep engaged.</p>
+          <p>I have found this week to be very stressful, and have often needed to do additional research to understand a topic required for the assignments. [I can] "follow a recipe" rather than gaining a firm understanding of the "ingredients" of the code (the various methods, expressions, operators, etc.) and how they work together.</p>
+          <p>It would be really beneficial to me if we did more hands on type stuff.</p>
+          <p>Need practice on arrays, lists and array lists.</p>
+          <p>Like the class very much, but the pace makes it hard to keep up and comprehend the lesson to the point where I understand it.</p>
+        </aside>
+      </section>
+      <section>
+        <h2>Links to videos and practice problems</h2>
+
+        <aside class="notes">
+          <p>It's up to you to take advantage of these.</p>
+        </aside>
+      </section>
+      <section>
+        <h2>Less typing during lecture</h2>
+        <h2>More assignments</h2>
+
+        <aside class="notes">
+          <p>Allow you to focus better on what's going on</p>
+          <p>More feedback on a one-to-one basis</p>
+          <p>Can't do traditional one-on-ones, the class is too large</p>
+          <p>Less flexibility on class progress and depth of topics</p>
+        </aside>
+      </section>
+      <section>
+        <h2 class="slide-header">Normal Daily Schedule</h2>
+        <h3>Monday</h3>
+        <table>
+          <tbody>
+            <tr>
+              <th>8:00am</th>
+              <th>11:30am</th>
+              <td>Project time</td>
+            </tr>
+            <tr>
+              <th>12:30pm</th>
+              <th>1:00pm</th>
+              <td>Show and tell</td>
+            </tr>
+            <tr>
+              <th>1:00pm</th>
+              <th>1:30pm</th>
+              <td>Retro</td>
+            </tr>
+            <tr>
+              <th>1:30pm</th>
+              <th>3:00pm</th>
+              <td>Lecture</td>
+            </tr>
+            <tr>
+              <th>3:00pm</th>
+              <th>finish</th>
+              <td>Mini-assignment<br>(due by 9pm)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2 class="slide-header">Normal Daily Schedule</h2>
+        <h3>Tuesday and Wednesday</h3>
+        <table>
+          <tbody>
+            <tr>
+              <th>8:00am</th>
+              <th>11:30am</th>
+              <td>Lecture</td>
+            </tr>
+            <tr>
+              <th>12:30pm</th>
+              <th>1:30pm</th>
+              <td>Lecture</td>
+            </tr>
+            <tr>
+              <th>1:30pm</th>
+              <th>finish</th>
+              <td>Assignment<br>(due by 9pm)</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2 class="slide-header">Normal Daily Schedule</h2>
+        <h3>Thursday</h3>
+        <table>
+          <tbody>
+            <tr>
+              <th>8:00am</th>
+              <th>11:30am</th>
+              <td>Lecture</td>
+            </tr>
+            <tr>
+              <th>12:30pm</th>
+              <th>3:00pm</th>
+              <td>Lecture</td>
+            </tr>
+            <tr>
+              <th>3:00pm</th>
+              <th>finish</th>
+              <td>Weekly project</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2 class="slide-header">Normal Daily Schedule</h2>
+        <h3>Friday</h3>
+        <table>
+          <tbody>
+            <tr>
+              <th>8:00am</th>
+              <th>finish</th>
+              <td>Weekly project</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+      <section>
+        <h2>This week's lectures</h2>
+        <table>
+          <tr>
+            <th>Monday</th>
+            <td>Structured exception handling</td>
+          </tr>
+          <tr>
+            <th>Tuesday</th>
+            <td>
+              Unit testing
+              <br> Test-driven development
+              <br> Dependency injection
+            </td>
+          </tr>
+          <tr>
+            <th>Wednesday</th>
+            <td>
+              File input and output
+              <br>
+              <code>static</code>
+              <br>
+              CSV and JSON
+            </td>
+          </tr>
+          <tr>
+            <th>Thursday</th>
+            <td>
+              Webjars
+              <br>
+              CSS frameworks
+            </td>
+          </tr>
+        </table>
+      </section>
+      <section>
+        <h2>This week's projects</h2>
+        <table>
+          <tr>
+            <th>Monday</th>
+            <td>Handle bad user input</td>
+          </tr>
+          <tr>
+            <th>Tuesday</th>
+            <td>Convert a Hindu numeral<br>into Roman numeral</td>
+          </tr>
+          <tr>
+            <th>Wednesday</th>
+            <td>To-do list</td>
+          </tr>
+          <tr>
+            <th>End-of-week</th>
+            <td>Time tracker</td>
+          </tr>
+        </table>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      history: true,
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+      ]
+    });
+  </script>
+</body>
+
+</html>
