@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css">
+    <link rel="stylesheet" href="lib/css/idea.css">
+    <style>
+      .reveal section img {
+        border: 0;
+        box-shadow: none;
+      }
+      .reveal .slide-header {
+        font-size: 2em;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+            <h1>GoForCode!</h1>
+          <div style="display: flex; justify-content: center; align-items: stretch;">
+            <img src="logo-liberty-mutual.svg" style="width: 350px; height: 165px; margin-right: 24px;">
+            <div style="border-left: 2px solid #CCC; margin-right: 24px;"></div>
+            <img src="logo-tiy.svg">
+          </div>
+        </section>
+        </section>
+        <section>
+          <h1 class="slide-header">Week Zero</h1>
+          <table>
+            <tbody>
+              <tr>
+                <th>Monday</th>
+                <td>
+		    <i>Morning</i> - some lecture<br>
+		    <i>Afternoon</i> - project ideation
+		</td>
+              </tr>
+              <tr>
+                <th>Tuesday</th>
+                <td>Ready pitch</td>
+              </tr>
+              <tr>
+                <th>Wednesday</th>
+                <td>Pitches and voting</td>
+              </tr>
+              <tr>
+                <th>Thursday</th>
+                <td>
+		    <i>Morning</i> - Agiles lectures (2)<br>
+		    <i>Afternoon</i> - Team assignment and project analysis
+		</td>
+              </tr>
+              <tr>
+                <th>Friday</th>
+                <td>
+		    Develop user stories<br>
+		    Set up repos, builds, apps
+		</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+            <h1 class="slide-header">No End to Lectures</h1>
+	    <p>Schedule to be published later this week</p>
+	</section>
+	<section>
+	    <h1 class="slide-header">Topics</h1>
+	    <p>NoSQL (non-relational databases)</p>
+            <p>Responsive design</p>
+            <p>How networks work</p>
+	    <p>Advanced TypeScript</p>
+            <p>Intro to GNULinux</p>
+	</section>
+	<section>
+	    <h1 class="slide-header">Topics continued</h1>
+            <p>Data structures and algorithms</p>
+            <p>Computer architecture</p>
+	    <p>Threading</p>
+	    <p>Network connections</p>
+	    <p>Microservice architecture</p>
+	    <p>Event-based programming</p>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+    <script>
+      Reveal.initialize({
+        history: true,
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+        ]
+      });
+    </script>
+  </body>
+</html>
