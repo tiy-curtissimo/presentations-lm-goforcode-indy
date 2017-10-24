@@ -1,0 +1,321 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>reveal.js</title>
+
+     <link href="https://fonts.googleapis.com/css?family=Nova+Mono|Pacifico" rel="stylesheet">
+    <link rel="stylesheet" href="css/reveal.css">
+    <link rel="stylesheet" href="css/theme/sky.css">
+
+    <!-- Theme used for syntax highlighting of code -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+
+    <style>
+      .reveal .subtitle {
+        font-size: .6em;
+        letter-spacing: -0.05em;
+      }
+      .reveal .smaller {
+        font-size: .76em;
+      }
+      .reveal .no-dots {
+        list-style: none;
+        padding: 0;
+        margin: 1em 0 .5em 0;
+      }
+      .reveal .no-dots li {
+        margin: 0 0 .5em 0;
+        font-size: .9em;
+      }
+      .reveal .angry {
+        background-color: red;
+        color: yellow;
+        padding: 0 1em;
+        font-size: 4em;
+        font-family: 'Nova Mono', monospace;
+      }
+      .reveal .calm {
+        background-color: #01579b;
+        color: white;
+        padding: 0 1em;
+        font-size: 4em;
+        font-family: 'Nova Mono', monospace;
+      }
+      .reveal .centered {
+        text-align: center;
+      }
+      .reveal .square-of-power {
+        height: 20vw;
+        width: 25vw;
+        position: relative;
+        border: 1px solid green;
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .reveal .square-of-power div {
+        position: absolute;
+        background-color: white;
+        border: 1px solid orange;
+        padding: .25em;
+        box-sizing: border-box;
+      }
+      .reveal .square-of-power div:nth-child(1) {
+        top: -.75em;
+        left: -1.7em;
+      }
+      .reveal .square-of-power div:nth-child(2) {
+        top: -.75em;
+        right: -1.4em;
+      }
+      .reveal .square-of-power div:nth-child(3) {
+        bottom: -.75em;
+        left: -1.3em;
+      }
+      .reveal .square-of-power div:nth-child(4) {
+        bottom: -.75em;
+        right: -1.7em;
+      }
+      .reveal .disused {
+        color: rgba(0, 0, 0, .1);
+      }
+      .reveal .secret {
+      font-family: 'Pacifico', cursive;
+      text-transform: none;
+      transform: rotate(-5deg);
+      color: white;
+      text-shadow: 2px 2px 10px black;
+      }
+      .reveal .mathish {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      align-content: center;
+      }
+      .reveal .mathish span {
+      margin: 0 16px;
+      }
+      .reveal .mathish span:nth-child(2) {
+      font-size: 1.2em;
+      position: relative;
+      top: -7px;
+      }
+    </style>
+
+    <!-- Printing and PDF exports -->
+    <script>
+      var link = document.createElement( 'link' );
+      link.rel = 'stylesheet';
+      link.type = 'text/css';
+      link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+      document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h1 class="subtitle" style="font-size: 2em;">
+            Agile Software Development Lifecycle
+          </h1>
+          <div style="display: flex; justify-content: center; align-items: stretch;">
+            <img src="logo-liberty-mutual.svg" style="border: 0; width: 350px; height: 165px; margin-right: 24px; box-shadow: none;">
+            <div style="border-left: 2px solid #CCC; margin-right: 24px;"></div>
+            <img src="logo-tiy.svg" style="border: 0; box-shadow: none;">
+          </div>
+        </section>
+        <section>
+          <h2 class="mathish"><span>SDLC</span><span>⊂</span><span>ALM</span></h2>
+        </section>
+        <section>
+          <h2>The Waterfall</h2>
+          <img src="http://www.umsl.edu/%7Ehugheyd/is6840/images/Waterfall_model.png">
+        </section>
+        <section>
+          <h2>A Manifesto</h2>
+          <p>
+            <div class="smaller">
+              We are uncovering better ways of
+              developing software by doing it and
+              helping others do it. Through this work
+              we have come to value:
+            </div>
+            <ul class="no-dots">
+              <li><b>Individuals and interactions</b> over processes and tools</li>
+              <li><b>Working software</b> over comprehensive documentation</li>
+              <li><b>Customer collaboration</b> over contract negotiation</li>
+              <li><b>Responding to change</b> over following a plan</li>
+            </ul>
+            <div class="smaller">
+              That is, while there is value in the
+              items on the right, we value the items on
+              the left more.
+            </div>
+          </p>
+        </section>
+        <section>
+          <img src="http://herdingcats.typepad.com/.a/6a00d8341ca4d953ef01a511e114a3970c-pi">
+        </section>
+        <section>
+          <h1 class="secret">Shhhh!</h1>
+        </section>
+        <section>
+          <span class="angry">POWER</span>
+        </section>
+        <section>
+          <div class="square-of-power">
+            <div>Quality</div>
+            <div>Time</div>
+            <div>Cost</div>
+            <div>Scope</div>
+            <span class="fragment fade-up">Business: 3<br>Development: 1</span>
+          </div>
+        </section>
+        <section>
+          <span class="calm">OVERVIEW</span>
+        </section>
+        <section>
+          <h2>My history</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Year</th>
+                <th>Methodology</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1999</td>
+                <td>XP</td>
+              </tr>
+              <tr>
+                <td>2003</td>
+                <td>FDD</td>
+              </tr>
+              <tr>
+                <td>2004</td>
+                <td>Scrum</td>
+              </tr>
+              <tr>
+                <td>2007</td>
+                <td>Lean with Kanban</td>
+              </tr>
+              <tr>
+                <td>2008</td>
+                <td>Scrumban</td>
+              </tr>
+              <tr>
+                <td>2012</td>
+                <td>FDD</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+        <section>
+          <h2>Tenets of XP</h2>
+          <div class="two-column">
+            <ul class="no-dots">
+              <li>User stories</li>
+              <li>Planning game</li>
+              <li>Stand-up meeting</li>
+              <li>Plan using velocity</li>
+              <li>Pair programming</li>
+              <li>On-site customer</li>
+              <li>Work iteratively</li>
+            </ul>
+            <ul class="no-dots" style="margin-left: 1em;">
+              <li>Acceptance tests</li>
+              <li>Test first, test everything</li>
+              <li>Integrate often</li>
+              <li>Collective ownership</li>
+              <li>Acceptance tests</li>
+              <li>Code the simplest thing</li>
+              <li>Refactor often</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <img style="background-color: white; height: 600px; width: auto;" src="https://upload.wikimedia.org/wikipedia/commons/8/84/Extreme_Programming.svg">
+        </section>
+        <section>
+          <img src="http://www.mbohlen.de/wp-content/uploads/2011/01/taskboard_fright42.jpg">
+        </section>
+        <section>
+          <h2>Tenets of Scrum</h2>
+          <div class="two-column">
+            <ul class="no-dots">
+              <li>User stories</li>
+              <li>Planning game</li>
+              <li>Stand-up meeting</li>
+              <li>Plan using velocity</li>
+              <li class="disused">Pair programming</li>
+              <li class="disused">On-site customer</li>
+              <li>Work iteratively</li>
+            </ul>
+            <ul class="no-dots" style="margin-left: 1em;">
+              <li class="disused">Acceptance tests</li>
+              <li class="disused">Test first, test everything</li>
+              <li class="disused">Integrate often</li>
+              <li class="disused">Collective ownership</li>
+              <li class="disused">Acceptance tests</li>
+              <li class="disused">Code the simplest thing</li>
+              <li class="disused">Refactor often</li>
+            </ul>
+          </div>
+        </section>
+        <section>
+          <img src="http://csharpcorner.mindcrackerinc.netdna-cdn.com/UploadFile/BlogImages/11292015063901AM/SystemsPlus-Scrum-Image-.jpg">
+        </section>
+        <section>
+            <img src="http://www.mbohlen.de/wp-content/uploads/2011/01/taskboard_fright42.jpg">
+        </section>
+        <section>
+          <h2>Lean</h2>
+          <p>
+            Reduce waste
+          </p>
+        </section>
+        <section>
+          <img src="http://www.instinctools.eu/wp-content/uploads/2017/04/%D0%91%D0%B5%D0%B7%D1%8B%D0%BC%D1%8F%D0%BD%D0%BD%D1%8B%D0%B9-1-01.jpg">
+        </section>
+        <section>
+          <img src="https://leankit.com/uploads/images/general/_xLarge/Kanban-board-2.jpg">
+        </section>
+        <section>
+          <h2>FDD</h2>
+          <p>
+            No one does FDD but me.
+          </p>
+          <p>
+            ¯\(◉◡◔)/¯
+          </p>
+        </section>
+        <section>
+          <h2>Q&amp;A</h2>
+        </section>
+      </div>
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.js"></script>
+
+    <script>
+      // More info about config & dependencies:
+      // - https://github.com/hakimel/reveal.js#configuration
+      // - https://github.com/hakimel/reveal.js#dependencies
+      Reveal.initialize({
+        history: true,
+        dependencies: [
+          { src: 'plugin/markdown/marked.js' },
+          { src: 'plugin/markdown/markdown.js' },
+          { src: 'plugin/notes/notes.js', async: true },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+        ]
+      });
+    </script>
+  </body>
+</html>

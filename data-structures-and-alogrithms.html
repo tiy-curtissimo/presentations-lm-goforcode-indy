@@ -1,0 +1,1422 @@
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+  <title>Data Structures and Algorithms</title>
+
+  <link rel="stylesheet" href="css/reveal.css">
+  <link rel="stylesheet" href="css/theme/sky.css">
+  <link rel="stylesheet" href="lib/css/idea.css">
+  <style>
+    .reveal section img {
+      border: 0;
+      box-shadow: none;
+    }
+
+    .reveal .slide-header {
+      font-size: 2em;
+    }
+
+    .reveal .super-header {
+      font-size: 2em;
+    }
+
+    .reveal .real-title {
+      font-size: 3em;
+    }
+
+    .reveal code.larger {
+      font-size: 150%;
+      line-height: 150%;
+      padding: .5em;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section>
+        <h3>GoForCode!</h3>
+        <h2>Data Structures
+          <br>&amp; Algorithms</h2>
+        <div style="display: flex; justify-content: center; align-items: stretch;">
+          <img src="logo-liberty-mutual.svg" style="width: 350px; height: 165px; margin-right: 24px;">
+          <div style="border-left: 2px solid #CCC; margin-right: 24px;"></div>
+          <img src="logo-tiy.svg">
+        </div>
+      </section>
+      <section>
+        <h1>A-genda</h1>
+        <ul>
+          <li>Measuring Complexity (big-O)</li>
+          <li>Data Structures</li>
+          <li>Algorithm Types</li>
+        </ul>
+      </section>
+      <section>
+        <section>
+          <h1 class="super-header">Measuring Complexity</h1>
+          <h2 class="real-title">Big-O</h2>
+        </section>
+        <section>
+          <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" preserveAspectRatio="xMinYMin" width="633" height="633" viewBox="-115 -1055 1152 1152">
+            <title>Comparison computational complexity</title>
+            <desc>Graphs number of operations, N vs number of input items, n for algorithms of common complexities, assumming a constant of 1, by CMG Lee.</desc>
+            <defs>
+              <pattern id="pattern_grid_1" patternUnits="userSpaceOnUse" width="10" height="10">
+                <rect x="0" y="0" width="9999" height="9999" stroke="#cccccc" stroke-width="1" fill="none" />
+              </pattern>
+              <pattern id="pattern_grid_5" patternUnits="userSpaceOnUse" width="50" height="50">
+                <rect x="0" y="0" width="9999" height="9999" stroke="#cccccc" stroke-width="2" fill="url(#pattern_grid_1)" />
+              </pattern>
+              <pattern id="pattern_grid_10" patternUnits="userSpaceOnUse" width="100" height="100">
+                <rect x="0" y="0" width="9999" height="9999" stroke="#cccccc" stroke-width="4" fill="url(#pattern_grid_5)" />
+              </pattern>
+              <rect id="grid" x="0" y="-1000" width="1000" height="1000" stroke="#000000" fill="url(#pattern_grid_10)" />
+              <rect id="inset" x="0" y="-70" width="70" height="70" stroke="#000000" fill="url(#pattern_grid_10)" />
+              <clipPath id="clip_grid">
+                <use xlink:href="#grid" />
+              </clipPath>
+              <clipPath id="clip_inset">
+                <use xlink:href="#inset" />
+              </clipPath>
+              <path id="arrowhead" d="M4,-2 L0,0 L4,2" fill="none" />
+              <g id="graphs">
+                <!-- BEGIN_DYNAMIC_SVG { -->
+                <text transform="translate(550,  -30)" x="0" y="0.7ex" fill="#cc00ff">
+                  <tspan>1</tspan>
+                </text>
+                <path d="M 0,-10 L 10,-10 L 20,-10 L 30,-10 L 40,-10 L 50,-10 L 60,-10 L 70,-10 L 80,-10 L 90,-10 L 100,-10 L 110,-10 L 120,-10 L 130,-10 L 140,-10 L 150,-10 L 160,-10 L 170,-10 L 180,-10 L 190,-10 L 200,-10 L 210,-10 L 220,-10 L 230,-10 L 240,-10 L 250,-10 L 260,-10 L 270,-10 L 280,-10 L 290,-10 L 300,-10 L 310,-10 L 320,-10 L 330,-10 L 340,-10 L 350,-10 L 360,-10 L 370,-10 L 380,-10 L 390,-10 L 400,-10 L 410,-10 L 420,-10 L 430,-10 L 440,-10 L 450,-10 L 460,-10 L 470,-10 L 480,-10 L 490,-10 L 500,-10 L 510,-10 L 520,-10 L 530,-10 L 540,-10 L 550,-10 L 560,-10 L 570,-10 L 580,-10 L 590,-10 L 600,-10 L 610,-10 L 620,-10 L 630,-10 L 640,-10 L 650,-10 L 660,-10 L 670,-10 L 680,-10 L 690,-10 L 700,-10 L 710,-10 L 720,-10 L 730,-10 L 740,-10 L 750,-10 L 760,-10 L 770,-10 L 780,-10 L 790,-10 L 800,-10 L 810,-10 L 820,-10 L 830,-10 L 840,-10 L 850,-10 L 860,-10 L 870,-10 L 880,-10 L 890,-10 L 900,-10 L 910,-10 L 920,-10 L 930,-10 L 940,-10 L 950,-10 L 960,-10 L 970,-10 L 980,-10 L 990,-10 L 1000,-10" stroke="#cc00ff" stroke-dasharray="32,4,32,4,4,4,4,4" clip-path="url(#clip_grid)" />
+                <text transform="translate(925,  -45)" x="0" y="0.7ex" fill="#0000ff">
+                  <tspan>log&#8322;</tspan>
+                  <tspan font-style="italic">n</tspan>
+                  <tspan></tspan>
+                </text>
+                <path d="M 10,-0 L 20,-10 L 30,-16 L 40,-20 L 50,-23 L 60,-26 L 70,-28 L 80,-30 L 90,-32 L 100,-33 L 110,-35 L 120,-36 L 130,-37 L 140,-38 L 150,-39 L 160,-40 L 170,-41 L 180,-42 L 190,-42 L 200,-43 L 210,-44 L 220,-45 L 230,-45 L 240,-46 L 250,-46 L 260,-47 L 270,-48 L 280,-48 L 290,-49 L 300,-49 L 310,-50 L 320,-50 L 330,-50 L 340,-51 L 350,-51 L 360,-52 L 370,-52 L 380,-52 L 390,-53 L 400,-53 L 410,-54 L 420,-54 L 430,-54 L 440,-55 L 450,-55 L 460,-55 L 470,-56 L 480,-56 L 490,-56 L 500,-56 L 510,-57 L 520,-57 L 530,-57 L 540,-58 L 550,-58 L 560,-58 L 570,-58 L 580,-59 L 590,-59 L 600,-59 L 610,-59 L 620,-60 L 630,-60 L 640,-60 L 650,-60 L 660,-60 L 670,-61 L 680,-61 L 690,-61 L 700,-61 L 710,-61 L 720,-62 L 730,-62 L 740,-62 L 750,-62 L 760,-62 L 770,-63 L 780,-63 L 790,-63 L 800,-63 L 810,-63 L 820,-64 L 830,-64 L 840,-64 L 850,-64 L 860,-64 L 870,-64 L 880,-65 L 890,-65 L 900,-65 L 910,-65 L 920,-65 L 930,-65 L 940,-66 L 950,-66 L 960,-66 L 970,-66 L 980,-66 L 990,-66 L 1000,-66" stroke="#0000ff" stroke-dasharray="32,4,4,4,4,4" clip-path="url(#clip_grid)" />
+                <text transform="translate(925, -125)" x="0" y="0.7ex" fill="#0099cc">
+                  <tspan>&#8730;</tspan>
+                  <tspan font-style="italic">n</tspan>
+                  <tspan></tspan>
+                </text>
+                <path d="M 0,-0 L 10,-10 L 20,-14 L 30,-17 L 40,-20 L 50,-22 L 60,-24 L 70,-26 L 80,-28 L 90,-30 L 100,-32 L 110,-33 L 120,-35 L 130,-36 L 140,-37 L 150,-39 L 160,-40 L 170,-41 L 180,-42 L 190,-44 L 200,-45 L 210,-46 L 220,-47 L 230,-48 L 240,-49 L 250,-50 L 260,-51 L 270,-52 L 280,-53 L 290,-54 L 300,-55 L 310,-56 L 320,-57 L 330,-57 L 340,-58 L 350,-59 L 360,-60 L 370,-61 L 380,-62 L 390,-62 L 400,-63 L 410,-64 L 420,-65 L 430,-66 L 440,-66 L 450,-67 L 460,-68 L 470,-69 L 480,-69 L 490,-70 L 500,-71 L 510,-71 L 520,-72 L 530,-73 L 540,-73 L 550,-74 L 560,-75 L 570,-75 L 580,-76 L 590,-77 L 600,-77 L 610,-78 L 620,-79 L 630,-79 L 640,-80 L 650,-81 L 660,-81 L 670,-82 L 680,-82 L 690,-83 L 700,-84 L 710,-84 L 720,-85 L 730,-85 L 740,-86 L 750,-87 L 760,-87 L 770,-88 L 780,-88 L 790,-89 L 800,-89 L 810,-90 L 820,-91 L 830,-91 L 840,-92 L 850,-92 L 860,-93 L 870,-93 L 880,-94 L 890,-94 L 900,-95 L 910,-95 L 920,-96 L 930,-96 L 940,-97 L 950,-97 L 960,-98 L 970,-98 L 980,-99 L 990,-99 L 1000,-100" stroke="#0099cc" stroke-dasharray="32,4,4,4,32,4" clip-path="url(#clip_grid)" />
+                <text transform="translate(950,-1030)" x="0" y="0.7ex" fill="#00cc00">
+                  <tspan></tspan>
+                  <tspan font-style="italic">n</tspan>
+                  <tspan></tspan>
+                </text>
+                <path d="M 0,0 L 10,-10 L 20,-20 L 30,-30 L 40,-40 L 50,-50 L 60,-60 L 70,-70 L 80,-80 L 90,-90 L 100,-100 L 110,-110 L 120,-120 L 130,-130 L 140,-140 L 150,-150 L 160,-160 L 170,-170 L 180,-180 L 190,-190 L 200,-200 L 210,-210 L 220,-220 L 230,-230 L 240,-240 L 250,-250 L 260,-260 L 270,-270 L 280,-280 L 290,-290 L 300,-300 L 310,-310 L 320,-320 L 330,-330 L 340,-340 L 350,-350 L 360,-360 L 370,-370 L 380,-380 L 390,-390 L 400,-400 L 410,-410 L 420,-420 L 430,-430 L 440,-440 L 450,-450 L 460,-460 L 470,-470 L 480,-480 L 490,-490 L 500,-500 L 510,-510 L 520,-520 L 530,-530 L 540,-540 L 550,-550 L 560,-560 L 570,-570 L 580,-580 L 590,-590 L 600,-600 L 610,-610 L 620,-620 L 630,-630 L 640,-640 L 650,-650 L 660,-660 L 670,-670 L 680,-680 L 690,-690 L 700,-700 L 710,-710 L 720,-720 L 730,-730 L 740,-740 L 750,-750 L 760,-760 L 770,-770 L 780,-780 L 790,-790 L 800,-800 L 810,-810 L 820,-820 L 830,-830 L 840,-840 L 850,-850 L 860,-860 L 870,-870 L 880,-880 L 890,-890 L 900,-900 L 910,-910 L 920,-920 L 930,-930 L 940,-940 L 950,-950 L 960,-960 L 970,-970 L 980,-980 L 990,-990 L 1000,-1000" stroke="#00cc00" stroke-dasharray="32,4,4,4" clip-path="url(#clip_grid)" />
+                <text transform="translate(310,-1030)" x="0" y="0.7ex" fill="#ff9900">
+                  <tspan></tspan>
+                  <tspan font-style="italic">n</tspan>
+                  <tspan>&#160;log&#8322;</tspan>
+                  <tspan font-style="italic">n</tspan>
+                  <tspan></tspan>
+                </text>
+                <path d="M 10,-0 L 20,-20 L 30,-48 L 40,-80 L 50,-116 L 60,-155 L 70,-197 L 80,-240 L 90,-285 L 100,-332 L 110,-381 L 120,-430 L 130,-481 L 140,-533 L 150,-586 L 160,-640 L 170,-695 L 180,-751 L 190,-807 L 200,-864 L 210,-922 L 220,-981 L 230,-1040" stroke="#ff9900" stroke-dasharray="4,0" clip-path="url(#clip_grid)" />
+                <text transform="translate(125,-1030)" x="0" y="0.7ex" fill="#ff0000">
+                  <tspan></tspan>
+                  <tspan font-style="italic">n</tspan>
+                  <tspan>&#178;</tspan>
+                </text>
+                <path d="M 0,-0 L 10,-10 L 20,-40 L 30,-90 L 40,-160 L 50,-250 L 60,-360 L 70,-490 L 80,-640 L 90,-810 L 100,-1000 L 110,-1210" stroke="#ff0000" stroke-dasharray="32,8" clip-path="url(#clip_grid)" />
+                <text transform="translate( 73,-1030)" x="0" y="0.7ex" fill="#cc6600">
+                  <tspan>2</tspan>
+                  <tspan font-style="italic">&#8319;</tspan>
+                  <tspan></tspan>
+                </text>
+                <path d="M 0,-10 L 10,-20 L 20,-40 L 30,-80 L 40,-160 L 50,-320 L 60,-640 L 70,-1280" stroke="#cc6600" stroke-dasharray="16,6" clip-path="url(#clip_grid)" />
+                <text transform="translate( 25,-1030)" x="0" y="0.7ex" fill="#000000">
+                  <tspan></tspan>
+                  <tspan font-style="italic">n</tspan>
+                  <tspan>!</tspan>
+                </text>
+                <path d="M 0,-10 L 10,-10 L 20,-20 L 30,-60 L 40,-240 L 50,-1200" stroke="#000000" stroke-dasharray="4,4" clip-path="url(#clip_grid)" />
+                <!-- } END_DYNAMIC_SVG -->
+              </g>
+            </defs>
+            <g id="main" font-family="Helvetica,Arial,sans-serif" font-size="50" text-anchor="middle" stroke-linejoin="round" stroke="none" fill="none">
+              <circle cx="0" cy="0" r="99999" fill="#ffffff" />
+              <use xlink:href="#grid" />
+              <g fill="#666666">
+                <g transform="translate(0,50)">
+                  <text x="550" y="40" font-style="italic">n</text>
+                  <text x="0" y="0">0</text>
+                  <text x="100" y="0">10</text>
+                  <text x="200" y="0">20</text>
+                  <text x="300" y="0">30</text>
+                  <text x="400" y="0">40</text>
+                  <text x="500" y="0">50</text>
+                  <text x="600" y="0">60</text>
+                  <text x="700" y="0">70</text>
+                  <text x="800" y="0">80</text>
+                  <text x="900" y="0">90</text>
+                  <text x="995" y="0">100</text>
+                </g>
+                <g transform="translate(-45,20)">
+                  <text x="-50" y="-550" font-style="italic">N</text>
+                  <text x="0" y="-0">0</text>
+                  <text x="0" y="-100">10</text>
+                  <text x="0" y="-200">20</text>
+                  <text x="0" y="-300">30</text>
+                  <text x="0" y="-400">40</text>
+                  <text x="0" y="-500">50</text>
+                  <text x="0" y="-600">60</text>
+                  <text x="0" y="-700">70</text>
+                  <text x="0" y="-800">80</text>
+                  <text x="0" y="-900">90</text>
+                  <text x="0" y="-1000">100</text>
+                </g>
+              </g>
+              <use xlink:href="#graphs" stroke-width="4" />
+              <!--
+               <rect x="0" y="-50" width="50" height="50" stroke="#000000" fill="url(#pattern_grid_10)"/>
+               <g transform="translate(250,-250) scale(10)" clip-path="url(#clip_inset)">
+                <use xlink:href="#inset"/>
+                <use xlink:href="#graphs"/>
+               </g>
+               -->
+            </g>
+          </svg>
+          <!-- Please retain this and other comments, which contain Python code to generate this SVG. """
+             import re, math
+
+             class dict2class(dict): ## http://stackoverflow.com/questions/16237659
+              def __getattr__(self, key): return self[key]
+
+             def fmt(string): ## string.format(**vars()) using tags {expression!format} by CMG Lee
+              def f(tag): i_sep = tag.rfind('!'); return (re.sub('\.0+$', '', str(eval(tag[1:-1])))
+               if (i_sep < 0) else ('{:%s}' % tag[i_sep + 1:-1]).format(eval(tag[1:i_sep])))
+              return (re.sub(r'(?<!{){[^{}]+}', lambda m:f(m.group()), string)
+                      .replace('{{', '{').replace('}}', '}'))
+             def append(obj, string): return obj.append(fmt(string))
+
+             def hex_rgb(colour): ## convert [#]RGB to #RRGGBB and [#]RRGGBB to #RRGGBB
+              return '#%s' % (colour if len(colour) > 4 else ''.join([c*2 for c in colour])).replace('#','')
+
+             def x(x_coord): return  10 * x_coord
+             def y(y_coord): return -10 * y_coord
+
+             def log(n): return math.log(n) / math.log(2)
+
+             GRAPHS = [
+              {'label':"1"                         ,'colour':'c0f','translate':'550,  -30','dash':'32,4,32,4,4,4,4,4','formula':lambda n:1                },
+              {'label':"log&#8322;''n''"           ,'colour':'00f','translate':'925,  -45','dash':'32,4,4,4,4,4'     ,'formula':lambda n:log(n)           },
+              {'label':"&#8730;''n''"              ,'colour':'09c','translate':'925, -125','dash':'32,4,4,4,32,4'    ,'formula':lambda n:math.sqrt(n)     },
+              {'label':"''n''"                     ,'colour':'0c0','translate':'950,-1030','dash':'32,4,4,4'         ,'formula':lambda n:n                },
+              {'label':"''n''&#160;log&#8322;''n''",'colour':'f90','translate':'310,-1030','dash':'4,0'              ,'formula':lambda n:n * log(n)       },
+              {'label':"''n''&#178;"               ,'colour':'f00','translate':'125,-1030','dash':'32,8'             ,'formula':lambda n:math.pow(n, 2)   },
+              {'label':"2''&#8319;''"              ,'colour':'c60','translate':' 73,-1030','dash':'16,6'             ,'formula':lambda n:math.pow(2, n)   },
+              {'label':"''n''!"                    ,'colour':'000','translate':' 25,-1030','dash':'4,4'              ,'formula':lambda n:math.factorial(n)},
+             ]
+             N_MAX = 100
+             outs  = []
+             for graph in GRAPHS:
+              out_paths        = []
+              is_continue_plot = True
+              for n in range(N_MAX + 1):
+               try:
+                if (is_continue_plot):
+                 complexity = graph['formula'](n)
+                 # print(fmt("{graph['label']}\t{n}\t{complexity}"))
+                 append(out_paths, '{x(n)},{y(complexity)!.0f}')
+                if (complexity > N_MAX): is_continue_plot = False
+               except ValueError: pass
+              colour = hex_rgb(graph['colour'])
+              label  = '<tspan>%s</tspan>' % (re.sub(r"''(.*?)''", r'</tspan><tspan font-style="italic">\1</tspan><tspan>', graph['label']))
+              append(outs, '''\
+                <text transform="translate({graph['translate']})" x="0" y="0.7ex" fill="{colour}">{label}</text>
+                <path d="M {' L '.join(out_paths)}" stroke="{colour}" stroke-dasharray="{graph['dash']}" clip-path="url(#clip_grid)"/>''')
+
+             out_size = 'width="100%" height="100%" viewBox="-115 -1055 1152 1152"'
+
+             ## Compile everything into an .svg file
+             myself   = open(__file__, 'r').read() ## the contents of this very file
+             file_out = open(__file__[:__file__.rfind('.')] + '.svg', 'w') ## *.* -> *.svg
+             try: ## use try/finally so that file is closed even if write fails
+              file_out.write('''<?xml version="1.0" encoding="utf-8"?><!%s
+              %s%s%s\n%s%s''' % ('-' + '-', ## because SVG comments cannot have 2 consecutive '-'s
+               myself[ : myself.find('width',myself.find('<svg'))], ## assume width specified before height/viewBox
+               out_size, ## replace SVG width/height/viewBox with {out_size} & dynamic SVG block with {outs} content
+               myself[myself.find('>',myself.find('<svg')) : myself.find('\n',myself.find('BEGIN_'+'DYNAMIC_SVG'))],
+               '\n'.join(outs), myself[myself.rfind('\n',0,myself.find('END_'+'DYNAMIC_SVG')) : ]))
+             finally:
+              file_out.close()
+             ## SVG-Python near-polyglot framework version 2 by CMG Lee (Feb 2016) -->
+        </section>
+        <section>
+          <h1 class="super-header">What it means</h1>
+        </section>
+        <section>
+          <table>
+            <thead>
+              <tr>
+                <th>O(
+                  <i>g</i>(
+                  <i>n</i>))</th>
+                <th>
+                  <i>n</i>=20</th>
+                <th>
+                  <i>n</i>=100</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>O(1)</td>
+                <td>constant</td>
+                <td>constant</td>
+              </tr>
+              <tr>
+                <td>O(log
+                  <sub style="font-size: 50%">2</sub>
+                  <i>n</i>)</td>
+                <td>4</td>
+                <td>7</td>
+              </tr>
+              <tr>
+                <td>O(√
+                  <i>n</i>)</td>
+                <td>4</td>
+                <td>10</td>
+              </tr>
+              <tr>
+                <td>O(
+                  <i>n</i>)</td>
+                <td>20</td>
+                <td>100</td>
+              </tr>
+              <tr>
+                <td>O(
+                  <i>n</i>log
+                  <sub style="font-size: 50%">2</sub>
+                  <i>n</i>)</td>
+                <td>86</td>
+                <td>664</td>
+              </tr>
+              <tr>
+                <td>O(
+                  <i>n</i>
+                  <sup style="font-size: 50%">2</sup>)</td>
+                <td>400</td>
+                <td>10,000</td>
+              </tr>
+              <tr>
+                <td>O(2
+                  <sup style="font-size: 50%">2</sup>)</td>
+                <td>1,048,576</td>
+                <td>1.2676E+30</td>
+              </tr>
+              <tr>
+                <td>O(
+                  <i>n</i>
+                  <sup style="font-size: 50%">2</sup>)</td>
+                <td>2,432,902,008,176,640,000</td>
+                <td>9.3326+157</td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+      </section>
+      <section>
+        <h1>Measured by</h1>
+        <ul>
+          <li>How fast to add</li>
+          <li>How fast to access</li>
+        </ul>
+      </section>
+      <section>
+        <section>
+          <h1 class="super-header">Data Structures</h1>
+          <h2 class="real-title">The Array List</h2>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+list &lArr; new ArrayList(capacity)
+          </code></pre>
+          <svg viewBox="-2 -2 244 44">
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4;" width="40" height="40" y="0" x="0" />
+            <rect x="40" y="0" height="40" width="40" style="fill:#ffffff;stroke:#586eff;stroke-width:4;" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4;" width="40" height="40" y="0" x="80" />
+            <rect x="120" y="0" height="40" width="40" id="rect4170" style="fill:#ffffff;stroke:#586eff;stroke-width:4;" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4;" id="rect4172" width="40" height="40" y="0" x="200" />
+            <circle r="4" cy="21" cx="170" id="path4174" style="fill:#586eff;fill-opacity:1;stroke:none;" />
+            <circle style="fill:#586eff;fill-opacity:1;stroke:none;" id="circle4176" cx="180" cy="21" r="4" />
+            <circle r="4" cy="21" cx="190" id="circle4178" style="fill:#586eff;fill-opacity:1;stroke:none;" />
+          </svg>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+list.add(4);
+          </code></pre>
+          <svg viewBox="-2 -2 244 44">
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4;" width="40" height="40" y="0" x="0" />
+            <rect x="40" y="0" height="40" width="40" style="fill:#ffffff;stroke:#586eff;stroke-width:4;" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4;" width="40" height="40" y="0" x="80" />
+            <rect x="120" y="0" height="40" width="40" id="rect4170" style="fill:#ffffff;stroke:#586eff;stroke-width:4;" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4;" id="rect4172" width="40" height="40" y="0" x="200" />
+            <circle r="4" cy="21" cx="170" id="path4174" style="fill:#586eff;fill-opacity:1;stroke:none;" />
+            <circle style="fill:#586eff;fill-opacity:1;stroke:none;" id="circle4176" cx="180" cy="21" r="4" />
+            <circle r="4" cy="21" cx="190" id="circle4178" style="fill:#586eff;fill-opacity:1;stroke:none;" />
+            <text style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;" xml:space="preserve">
+              <tspan style="font-size:35px" y="31" x="9">4</tspan>
+            </text>
+          </svg>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+list.add(9);
+list.add(0);
+list.add(3);
+// more
+list.add(8);
+          </code></pre>
+          <svg viewBox="-2 -2 244 44">
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4;" width="40" height="40" y="0" x="0" />
+            <rect x="40" y="0" height="40" width="40" style="fill:#ffffff;stroke:#586eff;stroke-width:4;" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4;" width="40" height="40" y="0" x="80" />
+            <rect x="120" y="0" height="40" width="40" id="rect4170" style="fill:#ffffff;stroke:#586eff;stroke-width:4;" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4;" id="rect4172" width="40" height="40" y="0" x="200" />
+            <circle r="4" cy="21" cx="170" id="path4174" style="fill:#586eff;fill-opacity:1;stroke:none;" />
+            <circle style="fill:#586eff;fill-opacity:1;stroke:none;" id="circle4176" cx="180" cy="21" r="4" />
+            <circle r="4" cy="21" cx="190" id="circle4178" style="fill:#586eff;fill-opacity:1;stroke:none;" />
+            <text style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;" xml:space="preserve">
+              <tspan style="font-size:35px" y="31" x="89">0</tspan>
+            </text>
+            <text style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;" xml:space="preserve">
+              <tspan style="font-size:35px" y="31" x="49">9</tspan>
+            </text>
+            <text style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;" xml:space="preserve">
+              <tspan style="font-size:35px" y="31" x="9">4</tspan>
+            </text>
+            <text style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;" xml:space="preserve">
+              <tspan style="font-size:35px" y="31" x="129">3</tspan>
+            </text>
+            <text style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;" xml:space="preserve">
+              <tspan style="font-size:35px" y="31" x="209">8</tspan>
+            </text>
+          </svg>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+list.add(2);
+          </code></pre>
+          <svg viewBox="-2 -2 484 144">
+            <defs>
+              <marker style="overflow:visible;" id="marker4947">
+                <path transform="scale(0.4) rotate(270) translate(10,0)" style="fill-rule:evenodd;stroke:#586eff;stroke-width:1pt;stroke-opacity:1;fill:#586eff;fill-opacity:1" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " id="path4949" />
+              </marker>
+            </defs>
+            <use transform="translate(80,0)" height="100%" width="100%" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(120,0)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(200,0)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(0,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(40,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(80,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(120,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(200,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(240,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(280,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(320,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(360,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(440,100)" xlink:href="#rect4319" y="0" x="0" />
+            <use transform="translate(40,0)" height="100%" width="100%" xlink:href="#rect4319" y="0" x="0" />
+            <rect id="rect4319" x="0" y="0" height="40" width="40" style="fill:#ffffff;stroke:#586eff;stroke-width:4" />
+            <circle style="fill:#586eff;fill-opacity:1;stroke:none;" id="path4174" cx="170" cy="21" r="4" />
+            <text xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;">
+              <tspan id="tspan4332" x="89" y="31" style="font-size:35px">4</tspan>
+            </text>
+            <text xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;">
+              <tspan id="tspan4336" x="49" y="31" style="font-size:35px">9</tspan>
+            </text>
+            <text xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;">
+              <tspan id="tspan4340" x="9" y="31" style="font-size:35px">0</tspan>
+            </text>
+            <text xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;">
+              <tspan id="tspan4344" x="129" y="31" style="font-size:35px">3</tspan>
+            </text>
+            <text xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none;">
+              <tspan id="tspan4348" x="209" y="31" style="font-size:35px">8</tspan>
+            </text>
+            <text y="100" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" xml:space="preserve">
+              <tspan style="font-size:35px" y="131" x="89" id="tspan4370">4</tspan>
+            </text>
+            <text y="100" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" xml:space="preserve">
+              <tspan style="font-size:35px" y="131" x="49" id="tspan4374">9</tspan>
+            </text>
+            <text y="100" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" xml:space="preserve">
+              <tspan style="font-size:35px" y="131" x="9" id="tspan4378">0</tspan>
+            </text>
+            <text y="100" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" xml:space="preserve">
+              <tspan style="font-size:35px" y="131" x="129" id="tspan4382">3</tspan>
+            </text>
+            <text y="100" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" xml:space="preserve">
+              <tspan style="font-size:35px" y="131" x="209" id="tspan4386">8</tspan>
+            </text>
+            <text x="40" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="100">
+              <tspan id="tspan4406" x="249" y="131" style="font-size:35px">2</tspan>
+            </text>
+            <path id="path4408" d="m 19.000001,48.362185 0,36.341539" style="fill:none;fill-rule:evenodd;stroke:#586eff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:2;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#marker4947)" />
+            <use height="100%" width="100%" transform="translate(40,0)" xlink:href="#path4408" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(80,0)" xlink:href="#path4408" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(120,0)" xlink:href="#path4408" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(200,0)" xlink:href="#path4408" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(20,0)" xlink:href="#path4174" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(10,0)" xlink:href="#path4174" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(0,100)" xlink:href="#path4174" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(10,100)" xlink:href="#path4174" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(20,100)" xlink:href="#path4174" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(240,100)" xlink:href="#path4174" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(260,100)" xlink:href="#path4174" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(250,100)" xlink:href="#path4174" y="0" x="0" />
+            <text style="font-size:25px;font-family:sans-serif;fill:#ff5858;fill-opacity:1;stroke:none" xml:space="preserve">
+              <tspan y="31" x="249">thrown away after</tspan>
+            </text>
+          </svg>
+        </section>
+        <section>
+          <h1>Results</h1>
+          <ul>
+            <li>How fast to add:
+              <ul>
+                <li><b>O(1)</b> &lt;= capacity</li>
+                <li><b>O(<i>n</i>)</b> &gt; capacity</li>
+              </ul>
+            </li>
+            <li>How fast to access:
+              <b>O(1)</b>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1 class="super-header">Data Structures</h1>
+          <h2 class="real-title">The Linked List</h2>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+list &lArr; new LinkedList()
+          </code></pre>
+          <svg viewBox="-2 -2 484 144">
+            <circle style="fill:#586eff;fill-opacity:1;stroke:none" id="path4174" cx="20" cy="21" r="4" />
+          </svg>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+list.add(2);
+          </code></pre>
+          <svg viewBox="-2 -2 484 144">
+            <defs id="defs5140">
+              <marker orient="auto" refY="0.0" refX="0.0" id="Arrow1Send" style="overflow:visible;">
+                <path id="path4429" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " style="fill-rule:evenodd;stroke:#586eff;stroke-width:1pt;stroke-opacity:1;fill:#586eff;fill-opacity:1" transform="scale(0.2) rotate(180) translate(6,0)" />
+              </marker>
+            </defs>
+            <circle r="4" cy="20" cx="20" id="path4174" style="fill:#586eff;fill-opacity:1;stroke:none" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4" width="40" height="40" y="0" x="80" id="rect4319" />
+            <path style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#586eff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Send)" d="m 34,20 32.023614,0" id="path6301" />
+            <text x="-120" id="text6897" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan4386" x="89" y="31" style="font-size:35px">2</tspan>
+            </text>
+          </svg>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+list.add(9);
+          </code></pre>
+          <svg viewBox="-2 -2 484 144">
+            <defs id="defs5140">
+              <marker orient="auto" refY="0.0" refX="0.0" id="Arrow1Send" style="overflow:visible;">
+                <path id="path4429" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " style="fill-rule:evenodd;stroke:#586eff;stroke-width:1pt;stroke-opacity:1;fill:#586eff;fill-opacity:1" transform="scale(0.2) rotate(180) translate(6,0)" />
+              </marker>
+            </defs>
+            <circle r="4" cy="20" cx="20" id="path4174" style="fill:#586eff;fill-opacity:1;stroke:none" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4" width="40" height="40" y="0" x="80" id="rect4319" />
+            <path style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#586eff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Send)" d="m 34,20 32.023614,0" id="path6301" />
+            <text x="-120" id="text6897" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan4386" x="89" y="31" style="font-size:35px">2</tspan>
+            </text>
+            <rect id="rect6927" x="80" y="0" height="40" width="40" style="fill:#ffffff;stroke:#586eff;stroke-width:4" />
+            <path id="path6929" d="m 34,20 32.023614,0" style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#586eff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Send)" />
+            <text y="0" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" xml:space="preserve" id="text6931" x="-120">
+              <tspan style="font-size:35px" y="31" x="89" id="tspan6933">2</tspan>
+            </text>
+            <use height="100%" width="100%" transform="translate(100,0)" id="use6954" xlink:href="#rect6927" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(100,0)" id="use6956" xlink:href="#path6929" y="0" x="0" />
+            <text x="-20" id="use6958" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan6962" x="189" y="31" style="font-size:35px">9</tspan>
+            </text>
+          </svg>
+        </section>
+        <section>
+          <svg viewBox="-2 -2 484 144">
+            <defs id="defs5140">
+              <marker orient="auto" refY="0.0" refX="0.0" id="Arrow1Send" style="overflow:visible;">
+                <path id="path4429" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " style="fill-rule:evenodd;stroke:#586eff;stroke-width:1pt;stroke-opacity:1;fill:#586eff;fill-opacity:1" transform="scale(0.2) rotate(180) translate(6,0)" />
+              </marker>
+            </defs>
+            <circle r="4" cy="20" cx="20" id="path4174" style="fill:#586eff;fill-opacity:1;stroke:none" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4" width="40" height="40" y="0" x="80" id="rect4319" />
+            <path style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#586eff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Send)" d="m 34,20 32.023614,0" id="path6301" />
+            <text x="-120" id="text6897" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan4386" x="89" y="31" style="font-size:35px">2</tspan>
+            </text>
+            <rect id="rect6927" x="80" y="0" height="40" width="40" style="fill:#ffffff;stroke:#586eff;stroke-width:4" />
+            <path id="path6929" d="m 34,20 32.023614,0" style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#586eff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow1Send)" />
+            <text y="0" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" xml:space="preserve" id="text6931" x="-120">
+              <tspan style="font-size:35px" y="31" x="89" id="tspan6933">2</tspan>
+            </text>
+            <use height="100%" width="100%" transform="translate(100,0)" id="use6954" xlink:href="#rect6927" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(100,0)" id="use6956" xlink:href="#path6929" y="0" x="0" />
+            <text x="-20" id="use6958" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan6962" x="189" y="31" style="font-size:35px">9</tspan>
+            </text>
+            <use height="100%" width="100%" transform="translate(200,0)" id="use6983" xlink:href="#rect6927" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(200,0)" id="use6985" xlink:href="#path6929" y="0" x="0" />
+            <text x="80" id="use6987" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan6997" x="289" y="31" style="font-size:35px">3</tspan>
+            </text>
+            <use height="100%" width="100%" transform="translate(300,0)" id="use6989" xlink:href="#rect6927" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(300,0)" id="use6991" xlink:href="#path6929" y="0" x="0" />
+            <text x="180" id="use6993" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan7001" x="389" y="31" style="font-size:35px">7</tspan>
+            </text>
+          </svg>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+var o &lArr; list[3];
+          </code></pre>
+          <div style="height: 50px; width: 50px; margin-left: 26px; overflow: hidden; position: absolute;" class="fragment current-visible">
+            <svg>
+              <path d="m 33.510347,30.362337 -15.023237,0 -15.0232367,0 L 10.975492,17.351833 18.48711,4.3413277 25.998728,17.351832 Z" id="path7041" style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:3.99940825;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+            </svg>
+          </div>
+          <div style="height: 50px; width: 50px; margin-left: 183px; overflow: hidden; position: absolute;" class="fragment current-visible">
+            <svg>
+              <path d="m 33.510347,30.362337 -15.023237,0 -15.0232367,0 L 10.975492,17.351833 18.48711,4.3413277 25.998728,17.351832 Z" id="path7041" style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:3.99940825;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+            </svg>
+          </div>
+          <div style="height: 50px; width: 50px; margin-left: 382px; overflow: hidden; position: absolute;" class="fragment current-visible">
+            <svg>
+              <path d="m 33.510347,30.362337 -15.023237,0 -15.0232367,0 L 10.975492,17.351833 18.48711,4.3413277 25.998728,17.351832 Z" id="path7041" style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:3.99940825;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+            </svg>
+          </div>
+          <div style="height: 50px; width: 50px; margin-left: 581px; overflow: hidden; position: absolute;" class="fragment current-visible">
+            <svg>
+              <path d="m 33.510347,30.362337 -15.023237,0 -15.0232367,0 L 10.975492,17.351833 18.48711,4.3413277 25.998728,17.351832 Z" id="path7041" style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:3.99940825;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+            </svg>
+          </div>
+          <div style="height: 50px; width: 50px; margin-left: 780px; overflow: hidden; position: absolute;" class="fragment current-visible">
+            <svg>
+              <path d="m 33.510347,30.362337 -15.023237,0 -15.0232367,0 L 10.975492,17.351833 18.48711,4.3413277 25.998728,17.351832 Z" id="path7041" style="fill:#ff0000;fill-opacity:1;stroke:#ff0000;stroke-width:3.99940825;stroke-linecap:square;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1" />
+            </svg>
+          </div>
+          <svg viewBox="-2 -2 484 144" style="margin-top: 60px">
+            <defs id="defs5140">
+              <marker orient="auto" refY="0.0" refX="0.0" id="Arrow2Send" style="overflow:visible;">
+                <path id="path4429" d="M 0.0,0.0 L 5.0,-5.0 L -12.5,0.0 L 5.0,5.0 L 0.0,0.0 z " style="fill-rule:evenodd;stroke:#586eff;stroke-width:1pt;stroke-opacity:1;fill:#586eff;fill-opacity:1" transform="scale(0.2) rotate(180) translate(6,0)" />
+              </marker>
+            </defs>
+            <circle r="4" cy="20" cx="20" id="path4174" style="fill:#586eff;fill-opacity:1;stroke:none" />
+            <rect style="fill:#ffffff;stroke:#586eff;stroke-width:4" width="40" height="40" y="0" x="80" id="rect4319" />
+            <text x="-120" id="text6897" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan4386" x="89" y="31" style="font-size:35px">2</tspan>
+            </text>
+            <rect id="rect6927" x="80" y="0" height="40" width="40" style="fill:#ffffff;stroke:#586eff;stroke-width:4" />
+            <path id="path6383" d="m 34,20 32.023614,0" style="fill:none;fill-opacity:1;fill-rule:evenodd;stroke:#586eff;stroke-width:4;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;marker-end:url(#Arrow2Send)" />
+            <text y="0" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" xml:space="preserve" id="text6931" x="-120">
+              <tspan style="font-size:35px" y="31" x="89" id="tspan6933">2</tspan>
+            </text>
+            <use height="100%" width="100%" transform="translate(100,0)" id="use6954" xlink:href="#rect6927" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(100,0)" id="use6956" xlink:href="#path6383" y="0" x="0" />
+            <text x="-20" id="use6958" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan6962" x="189" y="31" style="font-size:35px">9</tspan>
+            </text>
+            <use height="100%" width="100%" transform="translate(200,0)" id="use6983" xlink:href="#rect6927" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(200,0)" id="use6985" xlink:href="#path6383" y="0" x="0" />
+            <text x="80" id="use6987" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan6997" x="289" y="31" style="font-size:35px">3</tspan>
+            </text>
+            <use height="100%" width="100%" transform="translate(300,0)" id="use6989" xlink:href="#rect6927" y="0" x="0" />
+            <use height="100%" width="100%" transform="translate(300,0)" id="use6991" xlink:href="#path6383" y="0" x="0" />
+            <text x="180" id="use6993" xml:space="preserve" style="font-size:25px;font-family:monospace;fill:#586eff;fill-opacity:1;stroke:none" y="0">
+              <tspan id="tspan7001" x="389" y="31" style="font-size:35px">7</tspan>
+            </text>
+          </svg>
+        </section>
+        <section>
+          <h1>Results</h1>
+          <ul>
+            <li>How fast to add: <b>O(1)</b></li>
+            <li>How fast to access: <b>O(<i>n</i>)</b></li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1 class="super-header">Data Structures</h1>
+          <h2 class="real-title">The Hash Table</h2>
+        </section>
+        <section>
+          <svg width="450.0" height="310.0" style="transform: scale(2)">
+            <g font-size="12px" transform="scale(1.0) translate(10,60)">
+            <defs>
+              <!-- Start marker for non-null pointers: -->
+              <marker id="linkdot_N" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+                <circle cx="4" cy="4" r="3" stroke="#000000" fill="#000000" />
+              </marker>
+              <!-- Start marker for null pointers: -->
+              <marker id="linkdot_U" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="8" markerHeight="8" orient="auto">
+                <line x1="1" y1="1" x2="7" y2="7" stroke="#000000" />
+                <line x1="1" y1="7" x2="7" y2="1" stroke="#000000" />
+              </marker>
+
+              <!-- Tip for arrows: -->
+              <marker id="arrowtip_N" viewBox="0 0 14 8" refX="13" refY="4" markerWidth="14" markerHeight="8" orient="auto">
+                <polygon points="1,4  1,1  13,4  1,7" stroke="#000000" fill="#000000" />
+              </marker>
+              <!-- Tip for highlighted arrows: -->
+              <marker id="arrowtip_C" viewBox="0 0 14 8" refX="13" refY="4" markerWidth="14" markerHeight="8" orient="auto">
+                <polygon points="1,4  1,1  13,4  1,7" stroke="#cc0000" fill="#cc0000" />
+              </marker>
+
+              <!-- Key box in input column, normal: -->
+              <rect id="key_box_N"   y="0" x="0" width="90" height="20" fill="#00ffff" stroke="none" />
+              <!-- Key box in input column, highlighted : -->
+              <rect id="key_box_C"   y="0" x="0" width="90" height="20" fill="#00ffff" stroke="none" />
+              <!-- Key box in bucket or overflow columns, normal: -->
+              <rect id="key_box_E"   y="0" x="0" width="90" height="20" fill="#9cff9c" stroke="#000000" />
+              <!-- Key box in bucket or overflow columns, vacant: -->
+              <rect id="key_box_U"   y="0" x="0" width="90" height="20" fill="#ddeedd" stroke="#000000" />
+
+              <!-- Value box in bucket or overflow columns, occupied: -->
+              <rect id="val_box_E"   y="0" x="0" width="80" height="20" fill="#9cff9c" stroke="#000000" />
+              <!-- Value box in bucket or overflow columns, vacant: -->
+              <rect id="val_box_U"   y="0" x="0" width="80" height="20" fill="#ddeedd" stroke="#000000" />
+
+              <!-- Pointer box in bucket or overflow columns, used and non-null: -->
+              <rect id="ptr_box_E"   y="0" x="0" width="20" height="20" fill="#9cff9c" stroke="#000000" />
+              <!-- Pointer box in bucket or overflow columns, null/vacant: -->
+              <rect id="ptr_box_U"   y="0" x="0" width="20" height="20" fill="#ddeedd" stroke="#000000" />
+
+              <!-- Background for hash value, unused: -->
+              <rect id="hsh_box_U" x="3" y="1" width="34" height="18" fill="#ddeedd" stroke="none" />
+              <!-- Background for hash value, used: -->
+              <rect id="hsh_box_N" x="3" y="1" width="34" height="18" fill="#a8a8ff" stroke="none" />
+              <!-- Background for hash value, highlighted: -->
+              <rect id="hsh_box_C" x="3" y="1" width="34" height="18" fill="#ee4444" stroke="none" />
+
+              <!-- Vertical dots: -->
+              <g id="vdots">
+                <rect x="0" y="06" width="2" height="2" />
+                <rect x="0" y="12" width="2" height="2" />
+              </g>
+            </defs>
+
+              <!-- Keys and hash function -->
+              <g transform="translate(0,000)" text-anchor="middle" stroke="none">
+
+                <text x="45" y="-10" font-size="15px" font-weight="bold" fill="#000000" stroke="none"> keys
+            </text>
+
+                <g transform="translate(0,30)">
+                  <use xlink:href="#key_box_C" />
+                  <text x="45" y="14" stroke="none">John Smith</text>
+                  <line x1="95" y1="10" x2="100" y2="10" stroke="#dd0000" />
+                  <line x1="100" y1="10" x2="130" y2="80" stroke="#dd0000" />
+                  <line x1="130" y1="80" x2="150" y2="80" stroke="#dd0000" marker-end="url(#arrowtip_C)" />
+                </g>
+                <g transform="translate(0,70)">
+                  <use xlink:href="#key_box_N" />
+                  <text x="45" y="14" stroke="none">Lisa Smith</text>
+                  <line x1="95" y1="10" x2="100" y2="10" stroke="#000000" />
+                  <line x1="100" y1="10" x2="130" y2="-40" stroke="#000000" />
+                  <line x1="130" y1="-40" x2="150" y2="-40" stroke="#000000" marker-end="url(#arrowtip_N)" />
+                </g>
+                <g transform="translate(0,110)">
+                  <use xlink:href="#key_box_N" />
+                  <text x="45" y="14" stroke="none">Sam Doe</text>
+                  <line x1="95" y1="10" x2="100" y2="10" stroke="#000000" />
+                  <line x1="100" y1="10" x2="130" y2="100" stroke="#000000" />
+                  <line x1="130" y1="100" x2="150" y2="100" stroke="#000000" marker-end="url(#arrowtip_N)" />
+                </g>
+                <g transform="translate(0,150)">
+                  <use xlink:href="#key_box_C" />
+                  <text x="45" y="14" stroke="none">Sandra Dee</text>
+                  <line x1="95" y1="10" x2="100" y2="10" stroke="#dd0000" />
+                  <line x1="100" y1="10" x2="130" y2="-40" stroke="#dd0000" />
+                  <line x1="130" y1="-40" x2="150" y2="-40" stroke="#dd0000" marker-end="url(#arrowtip_C)" />
+                </g>
+                <g transform="translate(0,190)">
+                  <use xlink:href="#key_box_N" />
+                  <text x="45" y="14" stroke="none">Ted Baker</text>
+                  <line x1="95" y1="10" x2="100" y2="10" stroke="#000000" />
+                  <line x1="100" y1="10" x2="130" y2="-60" stroke="#000000" />
+                  <line x1="130" y1="-60" x2="150" y2="-60" stroke="#000000" marker-end="url(#arrowtip_N)" />
+                </g>
+
+              </g>
+
+              <!-- Hash values and bucket array -->
+              <g transform="translate(150,000)" text-anchor="middle" stroke="none">
+
+                <text x="50" y="-10" font-size="15px" font-weight="bold" fill="#000000" stroke="none">
+            buckets
+            </text>
+
+                <g transform="translate(000,0)">
+                  <use x="0" xlink:href="#hsh_box_U" />
+                  <text x="20" y="14">000</text>
+                  <use x="40" xlink:href="#ptr_box_U" />
+                  <line x1="50" y1="10" x2="50.000999999999998" y2="10" stroke="#000000" marker-start="url(#linkdot_U)" />
+                </g>
+                <g transform="translate(000,20)">
+                  <use x="0" xlink:href="#hsh_box_N" />
+                  <text x="20" y="14">001</text>
+                  <use x="40" xlink:href="#ptr_box_E" />
+                  <line x1="50" y1="10" x2="90" y2="0" stroke="#000000" marker-start="url(#linkdot_N)" marker-end="url(#arrowtip_N)" />
+                </g>
+                <g transform="translate(000,40)">
+                  <use x="0" xlink:href="#hsh_box_U" />
+                  <text x="20" y="14">002</text>
+                  <use x="40" xlink:href="#ptr_box_U" />
+                  <line x1="50" y1="10" x2="50.000999999999998" y2="10" stroke="#000000" marker-start="url(#linkdot_U)" />
+                </g>
+                <g transform="translate(000,60)">
+                  <text x="20" y="14" font-weight="bold">:</text>
+                  <text x="50" y="14" font-weight="bold">:</text>
+                </g>
+                <g transform="translate(000,80)">
+                  <use x="0" xlink:href="#hsh_box_U" />
+                  <text x="20" y="14">151</text>
+                  <use x="40" xlink:href="#ptr_box_U" />
+                  <line x1="50" y1="10" x2="50.000999999999998" y2="10" stroke="#000000" marker-start="url(#linkdot_U)" />
+                </g>
+                <g transform="translate(000,100)">
+                  <use x="0" xlink:href="#hsh_box_C" />
+                  <text x="20" y="14">152</text>
+                  <use x="40" xlink:href="#ptr_box_E" />
+                  <line x1="50" y1="10" x2="90" y2="-30" stroke="#000000" marker-start="url(#linkdot_N)" marker-end="url(#arrowtip_N)" />
+                </g>
+                <g transform="translate(000,120)">
+                  <use x="0" xlink:href="#hsh_box_N" />
+                  <text x="20" y="14">153</text>
+                  <use x="40" xlink:href="#ptr_box_E" />
+                  <line x1="50" y1="10" x2="90" y2="50" stroke="#000000" marker-start="url(#linkdot_N)" marker-end="url(#arrowtip_N)" />
+                </g>
+                <g transform="translate(000,140)">
+                  <use x="0" xlink:href="#hsh_box_U" />
+                  <text x="20" y="14">154</text>
+                  <use x="40" xlink:href="#ptr_box_U" />
+                  <line x1="50" y1="10" x2="50.000999999999998" y2="10" stroke="#000000" marker-start="url(#linkdot_U)" />
+                </g>
+                <g transform="translate(000,160)">
+                  <text x="20" y="14" font-weight="bold">:</text>
+                  <text x="50" y="14" font-weight="bold">:</text>
+                </g>
+                <g transform="translate(000,180)">
+                  <use x="0" xlink:href="#hsh_box_U" />
+                  <text x="20" y="14">253</text>
+                  <use x="40" xlink:href="#ptr_box_U" />
+                  <line x1="50" y1="10" x2="50.000999999999998" y2="10" stroke="#000000" marker-start="url(#linkdot_U)" />
+                </g>
+                <g transform="translate(000,200)">
+                  <use x="0" xlink:href="#hsh_box_N" />
+                  <text x="20" y="14">254</text>
+                  <use x="40" xlink:href="#ptr_box_E" />
+                  <line x1="50" y1="10" x2="90" y2="20" stroke="#000000" marker-start="url(#linkdot_N)" marker-end="url(#arrowtip_N)" />
+                </g>
+                <g transform="translate(000,220)">
+                  <use x="0" xlink:href="#hsh_box_U" />
+                  <text x="20" y="14">255</text>
+                  <use x="40" xlink:href="#ptr_box_U" />
+                  <line x1="50" y1="10" x2="50.000999999999998" y2="10" stroke="#000000" marker-start="url(#linkdot_U)" />
+                </g>
+
+              </g>
+
+              <!-- Hash values and bucket array -->
+              <g transform="translate(240,000)" text-anchor="middle" stroke="none">
+
+                <text x="95" y="-10" font-size="15px" font-weight="bold" fill="#000000" stroke="none">
+            entries
+            </text>
+
+                <g transform="translate(000,10)">
+                  <use x="0" xlink:href="#ptr_box_E" />
+                  <line x1="10" y1="10" x2="10" y2="10.000999999999999" stroke="#000000" marker-start="url(#linkdot_U)" />
+                  <use x="20" xlink:href="#key_box_E" />
+                  <text x="65" y="14">Lisa Smith</text>
+                  <use x="110" xlink:href="#val_box_E" />
+                  <text x="150" y="14">521-8976</text>
+                </g>
+                <g transform="translate(000,60)">
+                  <use x="0" xlink:href="#ptr_box_E" />
+                  <line x1="10" y1="10" x2="10" y2="50" stroke="#000000" marker-start="url(#linkdot_N)" marker-end="url(#arrowtip_N)" />
+                  <use x="20" xlink:href="#key_box_E" />
+                  <text x="65" y="14">John Smith</text>
+                  <use x="110" xlink:href="#val_box_E" />
+                  <text x="150" y="14">521-1234</text>
+                </g>
+                <g transform="translate(000,110)">
+                  <use x="0" xlink:href="#ptr_box_E" />
+                  <line x1="10" y1="10" x2="10" y2="10.000999999999999" stroke="#000000" marker-start="url(#linkdot_U)" />
+                  <use x="20" xlink:href="#key_box_E" />
+                  <text x="65" y="14">Sandra Dee</text>
+                  <use x="110" xlink:href="#val_box_E" />
+                  <text x="150" y="14">521-9655</text>
+                </g>
+                <g transform="translate(000,160)">
+                  <use x="0" xlink:href="#ptr_box_E" />
+                  <line x1="10" y1="10" x2="10" y2="10.000999999999999" stroke="#000000" marker-start="url(#linkdot_U)" />
+                  <use x="20" xlink:href="#key_box_E" />
+                  <text x="65" y="14">Ted Baker</text>
+                  <use x="110" xlink:href="#val_box_E" />
+                  <text x="150" y="14">418-4165</text>
+                </g>
+                <g transform="translate(000,210)">
+                  <use x="0" xlink:href="#ptr_box_E" />
+                  <line x1="10" y1="10" x2="10" y2="10.000999999999999" stroke="#000000" marker-start="url(#linkdot_U)" />
+                  <use x="20" xlink:href="#key_box_E" />
+                  <text x="65" y="14">Sam Doe</text>
+                  <use x="110" xlink:href="#val_box_E" />
+                  <text x="150" y="14">521-5030</text>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </section>
+        <section>
+          <h1>Results</h1>
+          <ul>
+            <li>How fast to add:
+              <ul>
+                <li>Best case: <b>O(1)</b></li>
+                <li>Worst case: <b>O(<i>n</i>)</b></li>
+              </ul>
+            </li>
+            <li>How fast to access:
+              <ul>
+                <li>Best case: <b>O(1)</b></li>
+                <li>Worst case: <b>O(<i>n</i>)</b></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1 class="super-header">Data Structures</h1>
+          <h2 class="real-title">The Sets</h2>
+        </section>
+        <section>
+          <h1 class="super-header">Pretty much</h1>
+          <h2 class="real-title">List/Hash Combo</h2>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1 class="super-header">Data Structures</h1>
+          <h2 class="real-title">Binary Trees</h2>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+tree.add(7)
+          </code></pre>
+          <svg
+            viewBox="0 0 40.50662 42.503981"
+            height="84"
+            width="84">
+           <path
+              d="m 40.49331,21.257502 a 20.240001,20.240001 0 0 1 -40.48000033,0 20.240001,20.240001 0 1 1 40.48000033,0 z"
+              id="path2981"
+              style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" /><text
+              x="12.853059"
+              y="30.270628"
+              id="text2983"
+              xml:space="preserve"
+              style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate"><tspan
+                style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1"
+                x="12.853059"
+                y="30.270628"
+                id="tspan2985">7</tspan></text>
+          </svg>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+tree.add(3)
+          </code></pre>
+          <svg viewBox="0 0 112.83987 98.174038" height="196" width="234">
+            <path d="m 114.60993,21.262052 a 20.240001,20.240001 0 0 1 -40.479995,0 20.240001,20.240001 0 1 1 40.479995,0 z" id="path2981" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <text x="86.969681" y="30.275177" id="text2983" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="86.969681" y="30.275177" id="tspan2985">7</tspan>
+            </text>
+            <path d="m 38.709937,76.922052 a 20.240001,20.240001 0 0 1 -40.4800027,0 20.240001,20.240001 0 1 1 40.4800027,0 z" id="path2994" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <text x="11.069689" y="85.935173" id="text2996" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="11.069689" y="85.935173" id="tspan2998">3</tspan>
+            </text>
+            <path d="M 34.736932,65.331461 47.936444,59.291913 44.292633,54.404798 34.736932,65.331461 Z" id="path3092" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 42.876479,59.277632 78.099225,33.015708" id="path3094" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+          </svg>
+        </section>
+        <section>
+          <pre><code class="java larger" data-trim>
+tree.add(5)
+          </code></pre>
+          <svg viewBox="0 0 112.83987 174.06767" height="344" width="234">
+            <path d="m 114.60993,21.262052 a 20.240001,20.240001 0 0 1 -40.479995,0 20.240001,20.240001 0 1 1 40.479995,0 z" id="path2981" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <text x="86.969681" y="30.275177" id="text2983" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="86.969681" y="30.275177" id="tspan2985">7</tspan>
+            </text>
+            <path d="m 38.709937,76.922052 a 20.240001,20.240001 0 0 1 -40.4800027,0 20.240001,20.240001 0 1 1 40.4800027,0 z" id="path2994" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <text x="11.069689" y="85.935173" id="text2996" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="11.069689" y="85.935173" id="tspan2998">3</tspan>
+            </text>
+            <path d="m 89.308935,152.82205 a 20.240001,20.240001 0 0 1 -40.48,0 20.240001,20.240001 0 1 1 40.48,0 z" id="path3018" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <text x="61.668678" y="161.83517" id="text3020" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="61.668678" y="161.83517" id="tspan3022">5</tspan>
+            </text>
+            <path d="M 34.736932,65.331461 47.936444,59.291913 44.292633,54.404798 34.736932,65.331461 Z" id="path3092" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 42.876479,59.277632 78.099225,33.015708" id="path3094" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 57.433425,135.74806 -10.325534,-10.20228 5.099584,-3.33998 5.22595,13.54226 z" id="path3120" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 51.865515,127.26871 29.994198,93.87492" id="path3122" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+          </svg>
+          <p class="fragment current-visible" style="transform: scale(3); color: red; z-index: 100; position: absolute; width: 200px; height: 30pz; top: 50%; margin-top: -15px; left: 50%; margin-left: -100px;">Unbalanced</p>
+          <p class="fragment current-visible"></p>
+        </section>
+        <section>
+          <svg viewBox="0 0 185.17216 98.174038" height="97.009918" width="191.99901" style="transform: scale(2.0)">
+            <path d="m 112.82658,21.262052 a 20.240001,20.240001 0 0 1 -40.479999,0 20.240001,20.240001 0 1 1 40.479999,0 z" id="path2981" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <text x="85.186325" y="30.275177" id="text2983" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="85.186325" y="30.275177" id="tspan2985">5</tspan>
+            </text>
+            <path d="m 36.926583,76.922052 a 20.240001,20.240001 0 0 1 -40.4800025,0 20.240001,20.240001 0 1 1 40.4800025,0 z" id="path2994" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <text x="9.286335" y="85.935173" id="text2996" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="9.286335" y="85.935173" id="tspan2998">3</tspan>
+            </text>
+            <path d="m 188.72558,76.922052 a 20.240001,20.240001 0 0 1 -40.48,0 20.240001,20.240001 0 1 1 40.48,0 z" id="path3002" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;fill-opacity:1;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <text x="161.08533" y="85.935173" id="text3004" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="161.08533" y="85.935173" id="tspan3006">7</tspan>
+            </text>
+            <path d="M 32.953578,65.331461 46.15309,59.291913 42.509279,54.404798 32.953578,65.331461 Z" id="path3092" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 41.093125,59.277632 76.315871,33.015708" id="path3094" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 151.2236,65.331461 -13.19951,-6.039548 3.64381,-4.887115 9.5557,10.926663 z" id="path3108" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 143.08406,59.277632 107.86131,33.015708" id="path3110" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+          </svg>
+        </section>
+        <section>
+          <svg width="300" height="250" viewBox="0 0 289.333 253" style="transform: scale(2.0)">
+            <path d="m 164.90699,25.3 a 20.240001,20.240001 0 0 1 -40.48,0 20.240001,20.240001 0 1 1 40.48,0 z" id="path2981" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate;fill-opacity:1" />
+            <text x="137.26674" y="34.313126" id="text2983" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="137.26674" y="34.313126" id="tspan2985">7</tspan>
+            </text>
+            <path d="m 89.006992,80.96 a 20.240001,20.240001 0 0 1 -40.480002,0 20.240001,20.240001 0 1 1 40.480002,0 z" id="path2994" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate;fill-opacity:1" />
+            <text x="61.366745" y="89.973122" id="text2996" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="61.366745" y="89.973122" id="tspan2998">3</tspan>
+            </text>
+            <path d="m 240.80599,80.96 a 20.240001,20.240001 0 0 1 -40.48,0 20.240001,20.240001 0 1 1 40.48,0 z" id="path3002" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate;fill-opacity:1" />
+            <text x="213.16574" y="89.973122" id="text3004" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="213.16574" y="89.973122" id="tspan3006">9</tspan>
+            </text>
+            <path d="m 38.406492,156.86 a 20.240001,20.240001 0 0 1 -40.4800021,0 20.240001,20.240001 0 1 1 40.4800021,0 z" id="path3010" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate;fill-opacity:1" />
+            <text x="10.766246" y="165.87312" id="text3012" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800196px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate;">
+              <tspan style="fill:#586eff;fill-opacity:1;-inkscape-font-specification:'monospace, Normal';font-family:monospace;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;font-size:24.28800196px;text-anchor:start;text-align:start;writing-mode:lr;line-height:125%;" x="10.766246" y="165.87312" id="tspan3014">2</tspan>
+            </text>
+            <path d="m 139.60599,156.86 a 20.240001,20.240001 0 0 1 -40.48,0 20.240001,20.240001 0 1 1 40.48,0 z" id="path3018" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate;fill-opacity:1" />
+            <text x="111.96574" y="165.87312" id="text3020" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="111.96574" y="165.87312" id="tspan3022">5</tspan>
+            </text>
+            <path d="m 291.40599,156.86 a 20.240001,20.240001 0 0 1 -40.48,0 20.240001,20.240001 0 1 1 40.48,0 z" id="path3026" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate;fill-opacity:1" />
+            <text x="255.91483" y="165.87312" id="text3028" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="256.91483" y="165.87312" id="tspan3030">11</tspan>
+            </text>
+            <path d="m 99.126992,227.7 a 20.240001,20.240001 0 0 1 -40.480002,0 20.240001,20.240001 0 1 1 40.480002,0 z" id="path3034" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate;fill-opacity:1" />
+            <text x="71.486748" y="236.71312" id="text3036" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="71.486748" y="236.71312" id="tspan3038">4</tspan>
+            </text>
+            <path d="m 180.08688,227.7001 a 20.240001,20.240001 0 0 1 -40.48,0 20.240001,20.240001 0 1 1 40.48,0 z" id="path3042" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate;fill-opacity:1" />
+            <text x="152.53557" y="236.54677" id="text3044" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="152.53557" y="236.54677" id="tspan3046">6</tspan>
+            </text>
+            <path d="m 190.20599,156.86 a 20.240001,20.240001 0 0 1 -40.48,0 20.240001,20.240001 0 1 1 40.48,0 z" id="path3050" style="display:inline;overflow:visible;visibility:visible;fill:#ffffff;stroke:#586eff;stroke-width:2.02399993;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate;fill-opacity:1" />
+            <text x="162.56575" y="165.87312" id="text3052" xml:space="preserve" style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:none;stroke-width:2;marker:none;enable-background:accumulate">
+              <tspan style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:24.28800201px;line-height:125%;font-family:monospace;-inkscape-font-specification:'monospace, Normal';text-align:start;writing-mode:lr-tb;text-anchor:start;fill:#586eff;fill-opacity:1" x="162.56575" y="165.87312" id="tspan3054">8</tspan>
+            </text>
+            <path d="M 85.033987,69.369409 98.233499,63.329861 94.589688,58.442746 85.033987,69.369409 Z" id="path3092" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 93.173534,63.31558 128.39628,37.053656" id="path3094" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 203.30401,69.369409 -13.19951,-6.039548 3.64381,-4.887115 9.5557,10.926663 z" id="path3108" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 195.16447,63.31558 159.94172,37.053656" id="path3110" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 30.190156,139.70801 10.325538,-10.20228 -5.099584,-3.33998 -5.225954,13.54226 z" id="path3114" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 35.758073,131.22866 57.629387,97.834868" id="path3116" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 107.73048,139.78601 -10.325534,-10.20228 5.099584,-3.33998 5.22595,13.54226 z" id="path3120" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 102.16257,131.30666 80.291253,97.912868" id="path3122" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 260.03684,139.53301 -10.32553,-10.20228 5.09958,-3.33998 5.22595,13.54226 z" id="path3126" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="M 254.46893,131.05366 232.59761,97.659868" id="path3128" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 150.37512,209.91475 -9.51639,-10.96091 5.33973,-2.94084 4.17666,13.90175 z" id="path3144" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 145.47091,201.03501 -15.01809,-27.2685" id="path3146" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 89.161779,211.27975 9.516387,-10.96091 -5.339724,-2.94084 -4.176663,13.90175 z" id="path3150" style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path d="m 94.065991,202.40001 15.018089,-27.2685" id="path3152" style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" />
+            <path style="display:inline;overflow:visible;visibility:visible;fill:#586eff;fill-opacity:1;stroke:#586eff;stroke-width:1.99999988;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" id="path10632" d="m 182.09401,139.53301 10.32553,-10.20228 -5.09958,-3.33998 -5.22595,13.54226 z" />
+            <path style="display:inline;overflow:visible;visibility:visible;fill:#000000;fill-opacity:1;stroke:#586eff;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;marker:none;enable-background:accumulate" id="path10634" d="M 187.66192,131.05366 209.53324,97.659868" />
+          </svg>
+        </section>
+        <section>
+          <h1>Results</h1>
+          <ul>
+            <li>How fast to add:
+              <ul>
+                <li>Average case: <b>O(log <i>n</i>)</b></li>
+                <li>Worst case: <b>O(<i>n</i>)</b></li>
+              </ul>
+            </li>
+            <li>How fast to access:
+              <ul>
+                <li>Average case: <b>O(log <i>n</i>)</b></li>
+                <li>Worst case: <b>O(<i>n</i>)</b></li>
+              </ul>
+            </li>
+          </ul>
+        </section>
+      </section>
+      <section>
+        <section>
+          <h1 class="super-header">Algorithms</h1>
+          <h2 class="real-title">Sorting</h2>
+        </section>
+        <section>
+          <h1 class="super-header">Bubble Sort</h1>
+          <img style="height: 500px; width: auto;" src="http://file2.answcdn.com/answ-cld/image/upload/w_760,c_fill,g_faces:center,q_60/v1401372433/mkre7fzd5jmj7oekbn4s.gif">
+        </section>
+        <section>
+          <h1 class="super-header">Merge Sort</h1>
+          <svg width="370px" height="357px" viewBox = "0 0 494 476"
+            xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <g id="graph0" class="graph" style="font-family:monospace;font-size:10pt;">
+           <!-- s00 -->
+           <g id="node1" class="node"><title>s00</title>
+           <polygon style="fill:white;stroke:black;" points="167,40 370,40 370,4 167,4 167,40"/>
+           <text text-anchor="middle" x="182" y="27">38</text>
+           <polyline style="fill:none;stroke:black;" points="198,40 198,4 "/>
+           <text text-anchor="middle" x="213" y="27">27</text>
+           <polyline style="fill:none;stroke:black;" points="229,40 229,4 "/>
+           <text text-anchor="middle" x="244" y="27">43</text>
+           <polyline style="fill:none;stroke:black;" points="260,40 260,4 "/>
+           <text text-anchor="middle" x="272" y="27">3</text>
+           <polyline style="fill:none;stroke:black;" points="284,40 284,4 "/>
+           <text text-anchor="middle" x="296" y="27">9</text>
+           <polyline style="fill:none;stroke:black;" points="308,40 308,4 "/>
+           <text text-anchor="middle" x="323" y="27">82</text>
+           <polyline style="fill:none;stroke:black;" points="339,40 339,4 "/>
+           <text text-anchor="middle" x="354" y="27">10</text>
+           </g>
+           <!-- s10 -->
+           <g id="node3" class="node"><title>s10</title>
+           <polygon style="fill:white;stroke:black;" points="141,112 258,112 258,76 141,76 141,112"/>
+           <text text-anchor="middle" x="156" y="99">38</text>
+           <polyline style="fill:none;stroke:black;" points="172,112 172,76 "/>
+           <text text-anchor="middle" x="187" y="99">27</text>
+           <polyline style="fill:none;stroke:black;" points="203,112 203,76 "/>
+           <text text-anchor="middle" x="218" y="99">43</text>
+           <polyline style="fill:none;stroke:black;" points="234,112 234,76 "/>
+           <text text-anchor="middle" x="246" y="99">3</text>
+           </g>
+           <!-- s00&#45;&gt;s10 -->
+           <g id="edge2" class="edge"><title>s00&#45;&gt;s10</title>
+           <path style="fill:none;stroke:black;" d="M251,40C242,49 232,59 223,69"/>
+           <polygon style="fill:black;stroke:black;" points="226,71 216,76 221,66 226,71"/>
+           </g>
+           <!-- s11 -->
+           <g id="node5" class="node"><title>s11</title>
+           <polygon style="fill:white;stroke:black;" points="294,112 380,112 380,76 294,76 294,112"/>
+           <text text-anchor="middle" x="306" y="99">9</text>
+           <polyline style="fill:none;stroke:black;" points="318,112 318,76 "/>
+           <text text-anchor="middle" x="333" y="99">82</text>
+           <polyline style="fill:none;stroke:black;" points="349,112 349,76 "/>
+           <text text-anchor="middle" x="364" y="99">10</text>
+           </g>
+           <!-- s00&#45;&gt;s11 -->
+           <g id="edge4" class="edge"><title>s00&#45;&gt;s11</title>
+           <path style="fill:none;stroke:black;" d="M285,40C294,49 304,59 313,69"/>
+           <polygon style="fill:black;stroke:black;" points="315,66 320,76 310,71 315,66"/>
+           </g>
+           <!-- s20 -->
+           <g id="node7" class="node"><title>s20</title>
+           <polygon style="fill:white;stroke:black;" points="72,184 134,184 134,148 72,148 72,184"/>
+           <text text-anchor="middle" x="87" y="171">38</text>
+           <polyline style="fill:none;stroke:black;" points="103,184 103,148 "/>
+           <text text-anchor="middle" x="118" y="171">27</text>
+           </g>
+           <!-- s10&#45;&gt;s20 -->
+           <g id="edge6" class="edge"><title>s10&#45;&gt;s20</title>
+           <path style="fill:none;stroke:black;" d="M175,112C163,121 148,132 135,142"/>
+           <polygon style="fill:black;stroke:black;" points="137,145 127,148 133,139 137,145"/>
+           </g>
+           <!-- s21 -->
+           <g id="node9" class="node"><title>s21</title>
+           <polygon style="fill:white;stroke:black;" points="172,184 227,184 227,148 172,148 172,184"/>
+           <text text-anchor="middle" x="187" y="171">43</text>
+           <polyline style="fill:none;stroke:black;" points="203,184 203,148 "/>
+           <text text-anchor="middle" x="215" y="171">3</text>
+           </g>
+           <!-- s10&#45;&gt;s21 -->
+           <g id="edge8" class="edge"><title>s10&#45;&gt;s21</title>
+           <path style="fill:none;stroke:black;" d="M199,112C199,120 199,129 199,138"/>
+           <polygon style="fill:black;stroke:black;" points="203,138 199,148 196,138 203,138"/>
+           </g>
+           <!-- s22 -->
+           <g id="node11" class="node"><title>s22</title>
+           <polygon style="fill:white;stroke:black;" points="310,184 365,184 365,148 310,148 310,184"/>
+           <text text-anchor="middle" x="322" y="171">9</text>
+           <polyline style="fill:none;stroke:black;" points="334,184 334,148 "/>
+           <text text-anchor="middle" x="349" y="171">82</text>
+           </g>
+           <!-- s11&#45;&gt;s22 -->
+           <g id="edge10" class="edge"><title>s11&#45;&gt;s22</title>
+           <path style="fill:none;stroke:black;" d="M337,112C337,120 337,129 337,138"/>
+           <polygon style="fill:black;stroke:black;" points="341,138 337,148 334,138 341,138"/>
+           </g>
+           <!-- s23 -->
+           <g id="node25" class="node"><title>s23</title>
+           <polygon style="fill:white;stroke:black;" points="418,184 472,184 472,148 418,148 418,184"/>
+           <text text-anchor="middle" x="445" y="171">10</text>
+           </g>
+           <!-- s11&#45;&gt;s23 -->
+           <g id="edge24" class="edge"><title>s11&#45;&gt;s23</title>
+           <path style="fill:none;stroke:black;" d="M364,112C378,121 395,132 409,142"/>
+           <polygon style="fill:black;stroke:black;" points="412,140 418,148 408,145 412,140"/>
+           </g>
+           <!-- s30 -->
+           <g id="node13" class="node"><title>s30</title>
+           <polygon style="fill:white;stroke:black;" points="4,256 58,256 58,220 4,220 4,256"/>
+           <text text-anchor="middle" x="31" y="243">38</text>
+           </g>
+           <!-- s20&#45;&gt;s30 -->
+           <g id="edge12" class="edge"><title>s20&#45;&gt;s30</title>
+           <path style="fill:none;stroke:black;" d="M85,184C76,193 66,203 56,213"/>
+           <polygon style="fill:black;stroke:black;" points="59,215 49,220 54,210 59,215"/>
+           </g>
+           <!-- s31 -->
+           <g id="node15" class="node"><title>s31</title>
+           <polygon style="fill:white;stroke:black;" points="76,256 130,256 130,220 76,220 76,256"/>
+           <text text-anchor="middle" x="103" y="243">27</text>
+           </g>
+           <!-- s20&#45;&gt;s31 -->
+           <g id="edge14" class="edge"><title>s20&#45;&gt;s31</title>
+           <path style="fill:none;stroke:black;" d="M103,184C103,192 103,201 103,210"/>
+           <polygon style="fill:black;stroke:black;" points="107,210 103,220 100,210 107,210"/>
+           </g>
+           <!-- s32 -->
+           <g id="node17" class="node"><title>s32</title>
+           <polygon style="fill:white;stroke:black;" points="148,256 202,256 202,220 148,220 148,256"/>
+           <text text-anchor="middle" x="175" y="243">43</text>
+           </g>
+           <!-- s21&#45;&gt;s32 -->
+           <g id="edge16" class="edge"><title>s21&#45;&gt;s32</title>
+           <path style="fill:none;stroke:black;" d="M193,184C190,192 187,202 184,210"/>
+           <polygon style="fill:black;stroke:black;" points="187,211 181,220 181,209 187,211"/>
+           </g>
+           <!-- s33 -->
+           <g id="node19" class="node"><title>s33</title>
+           <polygon style="fill:white;stroke:black;" points="220,256 274,256 274,220 220,220 220,256"/>
+           <text text-anchor="middle" x="247" y="243">3</text>
+           </g>
+           <!-- s21&#45;&gt;s33 -->
+           <g id="edge18" class="edge"><title>s21&#45;&gt;s33</title>
+           <path style="fill:none;stroke:black;" d="M211,184C216,192 223,202 229,212"/>
+           <polygon style="fill:black;stroke:black;" points="232,210 235,220 226,214 232,210"/>
+           </g>
+           <!-- s34 -->
+           <g id="node21" class="node"><title>s34</title>
+           <polygon style="fill:white;stroke:black;" points="292,256 346,256 346,220 292,220 292,256"/>
+           <text text-anchor="middle" x="319" y="243">9</text>
+           </g>
+           <!-- s22&#45;&gt;s34 -->
+           <g id="edge20" class="edge"><title>s22&#45;&gt;s34</title>
+           <path style="fill:none;stroke:black;" d="M332,184C330,192 328,201 326,210"/>
+           <polygon style="fill:black;stroke:black;" points="329,211 323,220 323,209 329,211"/>
+           </g>
+           <!-- s35 -->
+           <g id="node23" class="node"><title>s35</title>
+           <polygon style="fill:white;stroke:black;" points="364,256 418,256 418,220 364,220 364,256"/>
+           <text text-anchor="middle" x="391" y="243">82</text>
+           </g>
+           <!-- s22&#45;&gt;s35 -->
+           <g id="edge22" class="edge"><title>s22&#45;&gt;s35</title>
+           <path style="fill:none;stroke:black;" d="M351,184C357,192 365,203 372,212"/>
+           <polygon style="fill:black;stroke:black;" points="375,210 378,220 369,214 375,210"/>
+           </g>
+           <!-- s40 -->
+           <g id="node29" class="node"><title>s40</title>
+           <polygon style="fill:white;stroke:black;" points="72,328 134,328 134,292 72,292 72,328"/>
+           <text text-anchor="middle" x="87" y="315">27</text>
+           <polyline style="fill:none;stroke:black;" points="103,328 103,292 "/>
+           <text text-anchor="middle" x="118" y="315">38</text>
+           </g>
+           <!-- s30&#45;&gt;s40 -->
+           <g id="edge28" class="edge"><title>s30&#45;&gt;s40</title>
+           <path style="fill:none;stroke:black;" d="M49,256C58,265 68,275 78,285"/>
+           <polygon style="fill:black;stroke:black;" points="80,282 85,292 75,287 80,282"/>
+           </g>
+           <!-- s31&#45;&gt;s40 -->
+           <g id="edge30" class="edge"><title>s31&#45;&gt;s40</title>
+           <path style="fill:none;stroke:black;" d="M103,256C103,264 103,273 103,282"/>
+           <polygon style="fill:black;stroke:black;" points="107,282 103,292 100,282 107,282"/>
+           </g>
+           <!-- s41 -->
+           <g id="node32" class="node"><title>s41</title>
+           <polygon style="fill:white;stroke:black;" points="172,328 227,328 227,292 172,292 172,328"/>
+           <text text-anchor="middle" x="184" y="315">3</text>
+           <polyline style="fill:none;stroke:black;" points="196,328 196,292 "/>
+           <text text-anchor="middle" x="211" y="315">43</text>
+           </g>
+           <!-- s32&#45;&gt;s41 -->
+           <g id="edge32" class="edge"><title>s32&#45;&gt;s41</title>
+           <path style="fill:none;stroke:black;" d="M181,256C184,264 187,274 190,282"/>
+           <polygon style="fill:black;stroke:black;" points="193,281 193,292 187,283 193,281"/>
+           </g>
+           <!-- s33&#45;&gt;s41 -->
+           <g id="edge34" class="edge"><title>s33&#45;&gt;s41</title>
+           <path style="fill:none;stroke:black;" d="M235,256C230,264 223,274 217,284"/>
+           <polygon style="fill:black;stroke:black;" points="220,286 211,292 214,282 220,286"/>
+           </g>
+           <!-- s42 -->
+           <g id="node35" class="node"><title>s42</title>
+           <polygon style="fill:white;stroke:black;" points="310,328 365,328 365,292 310,292 310,328"/>
+           <text text-anchor="middle" x="322" y="315">9</text>
+           <polyline style="fill:none;stroke:black;" points="334,328 334,292 "/>
+           <text text-anchor="middle" x="349" y="315">82</text>
+           </g>
+           <!-- s34&#45;&gt;s42 -->
+           <g id="edge36" class="edge"><title>s34&#45;&gt;s42</title>
+           <path style="fill:none;stroke:black;" d="M324,256C326,264 328,273 330,282"/>
+           <polygon style="fill:black;stroke:black;" points="333,281 333,292 327,283 333,281"/>
+           </g>
+           <!-- s35&#45;&gt;s42 -->
+           <g id="edge38" class="edge"><title>s35&#45;&gt;s42</title>
+           <path style="fill:none;stroke:black;" d="M377,256C371,264 363,275 356,284"/>
+           <polygon style="fill:black;stroke:black;" points="359,286 350,292 353,282 359,286"/>
+           </g>
+           <!-- s36 -->
+           <g id="node27" class="node"><title>s36</title>
+           <polygon style="fill:white;stroke:black;" points="436,256 490,256 490,220 436,220 436,256"/>
+           <text text-anchor="middle" x="463" y="243">10</text>
+           </g>
+           <!-- s23&#45;&gt;s36 -->
+           <g id="edge26" class="edge"><title>s23&#45;&gt;s36</title>
+           <path style="fill:none;stroke:black;" d="M450,184C452,192 454,201 456,210"/>
+           <polygon style="fill:black;stroke:black;" points="459,209 459,220 453,211 459,209"/>
+           </g>
+           <!-- s43 -->
+           <g id="node38" class="node"><title>s43</title>
+           <polygon style="fill:white;stroke:black;" points="418,328 472,328 472,292 418,292 418,328"/>
+           <text text-anchor="middle" x="445" y="315">10</text>
+           </g>
+           <!-- s36&#45;&gt;s43 -->
+           <g id="edge40" class="edge"><title>s36&#45;&gt;s43</title>
+           <path style="fill:none;stroke:black;" d="M458,256C456,264 454,273 452,282"/>
+           <polygon style="fill:black;stroke:black;" points="455,283 449,292 449,281 455,283"/>
+           </g>
+           <!-- s50 -->
+           <g id="node40" class="node"><title>s50</title>
+           <polygon style="fill:white;stroke:black;" points="141,400 258,400 258,364 141,364 141,400"/>
+           <text text-anchor="middle" x="153" y="387">3</text>
+           <polyline style="fill:none;stroke:black;" points="165,400 165,364 "/>
+           <text text-anchor="middle" x="180" y="387">27</text>
+           <polyline style="fill:none;stroke:black;" points="196,400 196,364 "/>
+           <text text-anchor="middle" x="211" y="387">38</text>
+           <polyline style="fill:none;stroke:black;" points="227,400 227,364 "/>
+           <text text-anchor="middle" x="242" y="387">43</text>
+           </g>
+           <!-- s40&#45;&gt;s50 -->
+           <g id="edge42" class="edge"><title>s40&#45;&gt;s50</title>
+           <path style="fill:none;stroke:black;" d="M127,328C139,337 154,348 167,358"/>
+           <polygon style="fill:black;stroke:black;" points="169,355 175,364 165,361 169,355"/>
+           </g>
+           <!-- s41&#45;&gt;s50 -->
+           <g id="edge44" class="edge"><title>s41&#45;&gt;s50</title>
+           <path style="fill:none;stroke:black;" d="M199,328C199,336 199,345 199,354"/>
+           <polygon style="fill:black;stroke:black;" points="203,354 199,364 196,354 203,354"/>
+           </g>
+           <!-- s51 -->
+           <g id="node43" class="node"><title>s51</title>
+           <polygon style="fill:white;stroke:black;" points="294,400 380,400 380,364 294,364 294,400"/>
+           <text text-anchor="middle" x="306" y="387">9</text>
+           <polyline style="fill:none;stroke:black;" points="318,400 318,364 "/>
+           <text text-anchor="middle" x="333" y="387">10</text>
+           <polyline style="fill:none;stroke:black;" points="349,400 349,364 "/>
+           <text text-anchor="middle" x="364" y="387">82</text>
+           </g>
+           <!-- s42&#45;&gt;s51 -->
+           <g id="edge46" class="edge"><title>s42&#45;&gt;s51</title>
+           <path style="fill:none;stroke:black;" d="M337,328C337,336 337,345 337,354"/>
+           <polygon style="fill:black;stroke:black;" points="341,354 337,364 334,354 341,354"/>
+           </g>
+           <!-- s43&#45;&gt;s51 -->
+           <g id="edge48" class="edge"><title>s43&#45;&gt;s51</title>
+           <path style="fill:none;stroke:black;" d="M418,328C405,337 387,348 372,358"/>
+           <polygon style="fill:black;stroke:black;" points="374,361 364,364 370,355 374,361"/>
+           </g>
+           <!-- s60 -->
+           <g id="node46" class="node"><title>s60</title>
+           <polygon style="fill:white;stroke:black;" points="167,472 370,472 370,436 167,436 167,472"/>
+           <text text-anchor="middle" x="179" y="459">3</text>
+           <polyline style="fill:none;stroke:black;" points="191,472 191,436 "/>
+           <text text-anchor="middle" x="203" y="459">9</text>
+           <polyline style="fill:none;stroke:black;" points="215,472 215,436 "/>
+           <text text-anchor="middle" x="230" y="459">10</text>
+           <polyline style="fill:none;stroke:black;" points="246,472 246,436 "/>
+           <text text-anchor="middle" x="261" y="459">27</text>
+           <polyline style="fill:none;stroke:black;" points="277,472 277,436 "/>
+           <text text-anchor="middle" x="292" y="459">38</text>
+           <polyline style="fill:none;stroke:black;" points="308,472 308,436 "/>
+           <text text-anchor="middle" x="323" y="459">43</text>
+           <polyline style="fill:none;stroke:black;" points="339,472 339,436 "/>
+           <text text-anchor="middle" x="354" y="459">82</text>
+           </g>
+           <!-- s50&#45;&gt;s60 -->
+           <g id="edge50" class="edge"><title>s50&#45;&gt;s60</title>
+           <path style="fill:none;stroke:black;" d="M216,400C225,409 235,419 244,429"/>
+           <polygon style="fill:black;stroke:black;" points="246,426 251,436 241,431 246,426"/>
+           </g>
+           <!-- s51&#45;&gt;s60 -->
+           <g id="edge52" class="edge"><title>s51&#45;&gt;s60</title>
+           <path style="fill:none;stroke:black;" d="M320,400C311,409 301,419 292,429"/>
+           <polygon style="fill:black;stroke:black;" points="295,431 285,436 290,426 295,431"/>
+           </g>
+           </g>
+          </svg>
+        </section>
+        <section>
+          <h1>Let's Watch Some in Action</h1>
+        </section>
+        <section>
+          <iframe width="854" height="480" src="https://www.youtube.com/embed/kPRA0W1kECg?ecver=1" frameborder="0" allowfullscreen></iframe>        </section>
+        </section>
+      <section>
+        <p>Attributions</p>
+        <p style="font-size: 14px;">Hash table: https://upload.wikimedia.org/wikipedia/commons/7/7d/Hash_table_3_1_1_0_1_0_0_SP.svg</p>
+        <p style="font-size: 14px;">Bubble sort: http://file2.answcdn.com/answ-cld/image/upload/w_760,c_fill,g_faces:center,q_60/v1401372433/mkre7fzd5jmj7oekbn4s.gif</p>
+        <p style="font-size: 14px;">Merge sort: https://en.wikipedia.org/wiki/File:Merge_sort_algorithm_diagram.svg</p>
+      </section>
+    </div>
+  </div>
+
+  <script src="lib/js/head.min.js"></script>
+  <script src="js/reveal.js"></script>
+  <script>
+    Reveal.initialize({
+      history: true,
+      dependencies: [
+        { src: 'plugin/markdown/marked.js' },
+        { src: 'plugin/markdown/markdown.js' },
+        { src: 'plugin/notes/notes.js', async: true },
+        { src: 'plugin/highlight/highlight.js', async: true, callback: function () { hljs.initHighlightingOnLoad(); } },
+      ]
+    });
+  </script>
+</body>
+
+</html>
